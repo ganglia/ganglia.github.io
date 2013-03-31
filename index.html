@@ -9,7 +9,7 @@
   <meta name="author" content="Your Name">
 
   
-  <meta name="description" content=" Blog Archives Recent Posts ">
+  <meta name="description" content="Ganglia Web 3.5.7 has been released. Previous version (3.5.6) omitted key files from packaging. This version corrects it Download the release from &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,7 +66,449 @@
       <div class="blog-index">
   
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/18/ganglia-web-3-5-7-released/">Ganglia Web 3.5.7 Released</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-18T00:00:00-08:00" pubdate data-updated="true">Feb 18<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Ganglia Web 3.5.7 has been released. Previous version (3.5.6) omitted key files from packaging. This version corrects it
+
+Download the release from
+
+<a href="https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.7/">https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.7/</a>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/14/ganglia-web-3-5-6-released/">Ganglia Web 3.5.6 Released</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-14T00:00:00-08:00" pubdate data-updated="true">Feb 14<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div>
+
+Ganglia Web 3.5.6 has been released. Major changes are
+<ul>
+	<li>Number of fixes to address XSS (Cross Site Scripting) issues</li>
+	<li>Enhancement to the host view if use option  &#8220;metric_groups_initially_collapsed&#8221;. Clicking on metric groups  dynamically loads images instead of reloading the page</li>
+	<li>Incorporate legend in the selection when doing Inspect graph</li>
+</ul>
+If you are using Ganglia Web on a publicly available site you are advised to upgrade as soon as possible.
+
+Release notes can be found here
+
+<a href="https://github.com/ganglia/ganglia-web/wiki/Release-Notes">https://github.com/ganglia/ganglia-web/wiki/Release-Notes</a></div>
+<div>
+
+Download the release from
+
+<a href="https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.6/">https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.6/</a></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/14/ganglia-3-5-0-released/">Ganglia 3.5.0 Released</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-14T00:00:00-08:00" pubdate data-updated="true">Feb 14<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Ganglia dev team is happy to announce release of Ganglia 3.5.0. Key features in this release are
+<ul>
+	<li>gmond uses a separate thread to service gmetad requests. This should improve performance</li>
+	<li>Updates to a number of core Python collection modules</li>
+</ul>
+You can download the latest release from
+
+<a href="http://sourceforge.net/projects/ganglia/files/ganglia%20monitoring%20core/">http://sourceforge.net/projects/ganglia/files/ganglia%20monitoring%20core/</a>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/16/ganglia-web-3-5-2-released/">Ganglia Web 3.5.2 Released</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-16T00:00:00-07:00" pubdate data-updated="true">Jul 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Ganglia Web 3.5.2 has been released. Major changes are
+<ul>
+	<li>Fix for stacked graphs not showing after upgrading to 3.5.1</li>
+	<li>Inspect graph now uses AJAX calls to retrieve data which should help in situations where users use Basic authentication</li>
+</ul>
+You can find release notes here
+
+<a href="https://github.com/ganglia/ganglia-web/wiki/Release-Notes">https://github.com/ganglia/ganglia-web/wiki/Release-Notes</a>
+
+Download the release from
+
+<a href="https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.2/">https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.2/</a>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/13/ganglia-web-3-5-1-release-security-advisory/">Ganglia Web 3.5.1 Release - Security Advisory</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-13T00:00:00-07:00" pubdate data-updated="true">Jul 13<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">There is a security issue in Ganglia Web going back to at least 3.1.7 which can lead to arbitrary script being executed with web user privileges possibly leading to a machine compromise. Issue has been fixed in the latest version of Ganglia Web which can be downloaded from
+
+<a href="https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.1/">https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.1/</a>
+
+If you are running Ganglia Web open on the internet you are advised to upgrade ASAP or at a minimum password protect access to Ganglia Web.
+
+We&#8217;ll have a write up about details of the vulnerability in few days.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/16/overlaying-timeshifted-data/">Overlaying Timeshifted Data</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-16T00:00:00-07:00" pubdate data-updated="true">May 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Often times when troubleshooting an issue it is useful to compare current data to data from a previous period. For example you observe high load on one machine and want to compare it to the load from a previous day. In the past you would simply open up two browser windows with data from each period and compare them. This may prove tricky as you may be dealing with different Y scales. To help with that we have recently added ability to overlay timeshifted data onto any host metric graph in Ganglia. What this means is that next to each metric graph you will see a button that says Timeshift. Clicking on it will overlay data from the same period prior to it e.g. if you are viewing hour it will overlay data from an hour ago, if you are viewing day it will overlay data from a day ago etc. For example this shows one minute load average overlaid with data from yesterday
+
+[caption id=&#8221;attachment_546&#8221; align=&#8221;alignnone&#8221; width=&#8221;583&#8221; caption=&#8221;Timeshifted load one average&#8221;]<img class="size-full wp-image-546" title="Timeshift Load One average" src="http://ganglia.info/wp-content/uploads/timeshift_load.png" alt="Timeshift load one average" width="583" height="237" />[/caption]
+
+whereas graph below displays data from a week ago overlaid over this weeks data
+
+[caption id=&#8221;attachment_545&#8221; align=&#8221;alignnone&#8221; width=&#8221;583&#8221; caption=&#8221;Timeshift overlay CPU user&#8221;]<img class="size-full wp-image-545" title="Timeshift overlay CPU User" src="http://ganglia.info/wp-content/uploads/timeshift_cpu_user1.png" alt="Timeshift overlay CPU user" width="583" height="237" />[/caption]
+
+Preliminary support for this feature has already landed in the trunk of our Ganglia Web repository
+
+<a href="https://github.com/ganglia/ganglia-web">https://github.com/ganglia/ganglia-web</a>
+
+It is full usable although we are working on refining it. This should be included in Ganglia Web 3.5.0 when it&#8217;s fully ready.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/08/ganglia-web-3-4-2-released/">Ganglia Web 3.4.2 Released</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-08T00:00:00-07:00" pubdate data-updated="true">May 8<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">The Ganglia team is pleased to release Ganglia Web 3.4.2.  Notable changes are:
+
+<ul>
+<li>Improvements to the Live Dashboard</li>
+<li>Fixed the aggregate graphs metric auto complete which was broken in 3.4.1</li>
+<li>Add ability to specify critical and warning thresholds which can be used in Live Dashboard and Views</li>
+<li>Minor bug fixes</li>
+</ul>
+
+This release can be downloaded <a href="http://sourceforge.net/projects/ganglia/files/ganglia-web/3.4.2/">here</a>.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/08/ganglia-3-3-7-released/">Ganglia 3.3.7 Released</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-08T00:00:00-07:00" pubdate data-updated="true">May 8<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">The Ganglia team is pleased to announce the release of 3.3.7.  The following issues have been fixed in <em>gmond</em>:
+
+<ul>
+<li>BUG100: Fails to start in Solaris containers</li>
+<li>Fails to start when no address on the network interface (added retry_bind parameter)</li>
+<li>BUG321: Fails to start when Solaris CPU is in FAILED state (segmentation fault)</li>
+</ul>
+
+The release can be immediately downloaded <a href="http://sourceforge.net/projects/ganglia/files/ganglia%20monitoring%20core/3.3.7/">here</a>.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/19/ganglia-3-3-6-released/">Ganglia 3.3.6 Released</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-19T00:00:00-07:00" pubdate data-updated="true">Apr 19<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">The Ganglia Development Team is happy to announce the release of Ganglia 3.3.6.  This release fixes the following bug:
+
+<a href="http://bugzilla.ganglia.info/cgi-bin/bugzilla/show_bug.cgi?id=327">BUG327</a>: memory leak when receive channel is not configured or not hearing any data
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/05/ganglia-3-3-5-released/">Ganglia 3.3.5 Released</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-05T00:00:00-07:00" pubdate data-updated="true">Apr 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">The Ganglia Development Team is happy to announce the release of Ganglia 3.3.5.  This is mainly a bugfix release for 3.3.1 and all users of the 3.3.x series are encouraged to upgrade.
+
+For more details regarding this release, please refer to the <a href="https://github.com/ganglia/monitor-core/wiki/Release-Notes">Release Notes</a>.  Downloads are available at <a href="http://sourceforge.net/projects/ganglia/files/ganglia%20monitoring%20core/3.3.5/">SourceForge</a>.
+
+Work is already under way for the next release, please stay tuned for upcoming enhancements to the project!
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -77,6 +519,26 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/ganglia-web-3-5-7-released/">Ganglia Web 3.5.7 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-web-3-5-6-released/">Ganglia Web 3.5.6 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-3-5-0-released/">Ganglia 3.5.0 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/16/ganglia-web-3-5-2-released/">Ganglia Web 3.5.2 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/13/ganglia-web-3-5-1-release-security-advisory/">Ganglia Web 3.5.1 Release - Security Advisory</a>
+      </li>
     
   </ul>
 </section>

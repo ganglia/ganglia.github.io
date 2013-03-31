@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Monitoring Core v2.1.0 is Released! - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Completely rewrote the underlying hash library because the original hash functions were over-engineered and had a memory bug on certain platforms. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ganglia.github.com/blog/2002/02/21/monitoring-core-v210-is-released">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ganglia.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Monitoring Core v2.1.0 Is Released!</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-02-21T00:00:00-08:00" pubdate data-updated="true">Feb 21<span>st</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><ul>
+<li>Completely rewrote the underlying hash library because the original hash functions were over-engineered and had a memory bug on certain platforms. New hash functions are superlight and fast. Built test program and profiled/traced all memory functions using mpatrol. No leaks. Special thanks to Mike Howard for letting me test gmond on his cluster which displayed the memory bug. Also thanks to Alan Hagg and Rod Hernandez for patiently answering my questions about the memory bug on their clusters. You help was appreciated!
+</li><li>Updated code to catch when transient nameservice errors occur and retry. Correctly handle hosts the don&#8217;t resolve instead of treating as an error
+</li><li>Added a patch submitted by Joshua J England for gmond to correctly report the number of CPUs and their speed on alpha architectures
+</li><li>Added a patch submitted by Eirikur Hallgrimsson and written by Yaroslav Klyukin for gmetric which allows users to chose which network interface gmetric multicasts metric data
+</li><li>Changed the &#8220;safe_host&#8221; option to &#8220;trusted_host&#8221; to make it clearer. Also added the &#8220;num_nodes&#8221; and &#8220;num_custom_metrics&#8221; options for more efficient in-memory cluster image creation
+</li><li>Reduced the number of total threads by one by removing the for(;;)pause() spin and having the main thread do server work
+</li><li>created the function my_inet_ntop() function in libganglia to deal with the limitations of inet_ntoa in a multi-threaded environment
+</li><li>changed the self-organzing behavior of gmond to recognize when a transient error occured on a remote gmond process
+</li><li>added verbose error checking of gethostbyaddr() in listen.c
+</li></ul>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-02-21T00:00:00-08:00" pubdate data-updated="true">Feb 21<span>st</span>, 2002</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ganglia.github.com/blog/2002/02/21/monitoring-core-v210-is-released/" data-via="" data-counturl="http://ganglia.github.com/blog/2002/02/21/monitoring-core-v210-is-released/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2002/02/11/php-rrd-web-client-v103-released/" title="Previous Post: php rrd web client v1.0.3 released!">&laquo; php rrd web client v1.0.3 released!</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2002/02/22/monitoring-core-v211-released/" title="Next Post: Monitoring Core v2.1.1 Released!">Monitoring Core v2.1.1 Released! &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/ganglia-web-3-5-7-released/">Ganglia Web 3.5.7 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-web-3-5-6-released/">Ganglia Web 3.5.6 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-3-5-0-released/">Ganglia 3.5.0 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/16/ganglia-web-3-5-2-released/">Ganglia Web 3.5.2 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/13/ganglia-web-3-5-1-release-security-advisory/">Ganglia Web 3.5.1 Release - Security Advisory</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

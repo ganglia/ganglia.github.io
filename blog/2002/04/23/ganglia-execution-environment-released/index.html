@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ganglia execution environment released! - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="As promised, the ganglia execution environment has been released! The execution environment requires at least version 2.3.0 of the ganglia monitoring &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ganglia.github.com/blog/2002/04/23/ganglia-execution-environment-released">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ganglia.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ganglia Execution Environment Released!</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-04-23T00:00:00-07:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content">As promised, the ganglia execution environment has been released! The execution environment requires at least version 2.3.0 of the ganglia monitoring core be installed. The Ganglia Documentation has been updated to include all the information you need to know about installing and using the executiong components.
+
+There have been a number of changes to the monitoring core:
+
+2002-04-19 Matt Massie
+· Fixed a bug in the .spec file where upgrades failed if gmond was not up
+· Updated autoconf to correctly configure ia64 machines
+
+2002-04-18 Matt Massie
+· Enabled setsockopt SO_REUSEADDR for the mcast_join socket in order allow multiple instances of gmond to listen to the same multicast channel
+
+2002-04-17 Matt Massie
+· Added the &#8211;list and &#8211;single_line option to gstat for output flexibility
+
+2002-04-17 Alan Hagge
+· Added preliminary support for IRIX
+
+2002-04-16 Matt Massie
+· Added the gexec metric in preparation for the release of gexec
+· Updated the gexec_cluster() function in libganglia to pull in more data from the XML and handle unresolved names and names without domains correctly
+· Updated gstat to print the updated information from gexec_cluster()
+· Added a &#8211;no_gexec flag to gmond for hosts that are not part of the computation cluster (file servers, frontends, etc)
+· Added a &#8211;all_trusted flag where gmond sees ALL hosts as trusted as suggested by Martin Knoblauch
+· Removed goto statement in pre_process_node() function to avoid rare looping bug thanks to feedback from Mike Snitzer
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-04-23T00:00:00-07:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2002</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ganglia.github.com/blog/2002/04/23/ganglia-execution-environment-released/" data-via="" data-counturl="http://ganglia.github.com/blog/2002/04/23/ganglia-execution-environment-released/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2002/04/08/monitoring-core-v223-released/" title="Previous Post: monitoring core v2.2.3 released!">&laquo; monitoring core v2.2.3 released!</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2002/05/12/64bit-clean-execution-environment-available/" title="Next Post: 64bit clean execution environment available">64bit clean execution environment available &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/ganglia-web-3-5-7-released/">Ganglia Web 3.5.7 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-web-3-5-6-released/">Ganglia Web 3.5.6 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-3-5-0-released/">Ganglia 3.5.0 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/16/ganglia-web-3-5-2-released/">Ganglia Web 3.5.2 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/13/ganglia-web-3-5-1-release-security-advisory/">Ganglia Web 3.5.1 Release - Security Advisory</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

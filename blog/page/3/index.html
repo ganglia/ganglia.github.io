@@ -1,0 +1,640 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Ganglia team is announcing the release of Ganglia Web 2.1.1. Notable additions are Introduction of Overlay Events and Events Timeline (wiki docs) &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ganglia.github.com/blog/page/3">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ganglia.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/06/26/announcing-ganglia-web-2-1-1/">Announcing Ganglia Web 2.1.1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-26T00:00:00-07:00" pubdate data-updated="true">Jun 26<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Ganglia team is announcing the release of Ganglia Web 2.1.1. Notable additions are
+<ul>
+	<li>Introduction of <a href="http://ganglia.info/?p=382">Overlay Events</a> and <a href="http://ganglia.info/?p=411">Events Timeline</a> (<a href="https://sourceforge.net/apps/trac/ganglia/wiki/events">wiki docs</a>)</li>
+	<li><a href="https://sourceforge.net/apps/trac/ganglia/wiki/events">Events API</a></li>
+	<li>Other enhancements and bug fixes</li>
+</ul>
+Latest release can be downloaded from
+
+<a href="https://sourceforge.net/projects/ganglia/files/gweb/2.1.1/">https://sourceforge.net/projects/ganglia/files/gweb/2.1.1/</a>
+
+Please follow the <a href="https://sourceforge.net/apps/trac/ganglia/wiki/ganglia-web-2#Installation">installation instructions after the download</a>.
+
+<strong>Update</strong>: Jeff Buchbinder (<a href="https://twitter.com/jbuchbinder">@jbuchbinder</a>) was fast and added missing Edit action to the API. You can now download 2.1.2.
+
+<a href="https://sourceforge.net/projects/ganglia/files/gweb/2.1.2/">https://sourceforge.net/projects/ganglia/files/gweb/2.1.2/</a>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/06/22/overlaying-event-time-line/">Overlaying Event Timeline</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-22T00:00:00-07:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">In our &#8221;<a href="http://ganglia.info/?p=382">introducing overlay events</a>&#8221; we added ability to specify events that are overlaid on top of graphs. Thanks to the work of Jesse Becker we now also support overlaying event time line. To best illustrate this is how overlaying event time line looks like
+
+<img class="alignnone size-full wp-image-413" src="http://ganglia.info/wp-content/uploads/events_timeline_1.png" alt="Events time line 1" width="583" height="223" />
+
+This provides you with immediate context and allows you to better correlate metrics. It may also provide you with additional insight. Let&#8217;s say you saw something like this
+
+<img class="alignnone size-full wp-image-414" src="http://ganglia.info/wp-content/uploads/events_timeline_2.png" alt="Events time line 2" width="583" height="223" />
+
+It may not be DB backup that is causing the load and you may want to investigate.
+
+To use event time line all you need to do is supply both start and end time of the event e.g.
+<pre>wget -O /dev/null -q "http://mygangliahost.com/ganglia/api/events_api.php?action=add&amp;start_time=12340000&amp;end_time=12340500&amp;summary=Prod DB Backup&amp;host_regex=db02"</pre>
+We are working on a generic wrapper to run with any command that will populate the events API. Stay tuned.
+
+To download please visit
+
+<a href="https://github.com/vvuksan/ganglia-misc">https://github.com/vvuksan/ganglia-misc</a>
+<div style="width: 1px;height: 1px;overflow: hidden">https://github.com/vvuksan/cronologger</div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/06/15/announcing-ganglia-web-2-0-0/">Announcing Ganglia Web 2.0.0</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-15T00:00:00-07:00" pubdate data-updated="true">Jun 15<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">After many months of development we are happy to announce arrival of Ganglia Web 2.0.0 release. Some of the notable features include
+<ul>
+	<li>Time period zooming ie. select time period you want to zoom with your mouse</li>
+	<li>Views</li>
+	<li>Define graphs using a JSON representation</li>
+	<li>Create easy aggregate (rollup graphs)</li>
+	<li>Mobile optimized/reduced view</li>
+	<li>etc.</li>
+</ul>
+You can read about other features <a href="http://sourceforge.net/apps/trac/ganglia/wiki/ganglia-web-2">here</a>. You can download the latest version from our SourceForge repository here
+
+<a href="http://sourceforge.net/projects/ganglia/files/gweb/2.0.0/">http://sourceforge.net/projects/ganglia/files/gweb/2.0.0/</a>
+
+After you download it please <a href="http://sourceforge.net/apps/trac/ganglia/wiki/ganglia-web-2#Installation">read the installation instructions</a> as there are couple steps you will need to do for things to work.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/06/14/introducing-overlay-events/">Introducing Overlay Events</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-14T00:00:00-07:00" pubdate data-updated="true">Jun 14<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">One of the commonly asked Ganglia feature requests has been the ability to overlay events as vertical lines e.g. to show deploys. Unfortunately there was no built in functionality in Ganglia to do that but it had to be &#8220;hacked in&#8221;. For example <a href="http://vuksan.com/blog/2010/06/28/overlay-deploy-timeline-on-your-ganglia-graphs/">in this blog post</a> there is a description of one approach. Fortunately that is now history as we have added &#8220;Overlay Events&#8221;. This is a generic feature that allows you to specify a list of events including time (unix timestamp) and description as well as grid, cluster and host regex that this event applies to. This way you can limit an overlay event to a subset of hosts e.g. DB backup affects only the DB slave server. You will end up with something like this
+<img src="../wp-content/uploads/events.png" alt="Overlay events" width="397" height="210" />
+
+To enable overlay events add following to your conf.php
+<pre>$conf['overlay_events'] = true;</pre>
+Events are configured using a simple JSON array. By default events are stored in the following file
+<pre>$conf['overlay_events_file'] = $conf['conf_dir'] . "/events.json";</pre>
+If you are using defaults that is
+
+/var/lib/ganglia/conf/events.json
+
+Example of the events JSON file used to create the above overlay looks like this
+<pre>[
+ {"start_time":1308496361,
+ "summary":"DB Backup",
+ "description":"Prod daily db backup",
+ "grid":"*",
+ "cluster":"*",
+ "host_regex":"centos1"},
+ {"start_time":1308497211,
+ "summary":"FS cleanup",
+ "grid":"*",
+ "cluster":"*",
+ "host_regex":"centos1"}
+]</pre>
+Currently only host_regex is supported but we are working on adding filtering by grid and cluster. All you now need to do is decide which events to include. Example events you can include
+<ul>
+	<li>Start time of particular periodic jobs such as DB backups, DB clean ups</li>
+	<li>Deploys</li>
+	<li>Nagios alerts sent</li>
+</ul>
+Alternatively you can try the Events API e.g. I have added following command to be executed before my critical jobs start
+<pre>wget -O /dev/null -q "http://mygangliahost.com/ganglia/api/events_api.php?action=add&amp;start_time=now&amp;summary=Prod DB Backup&amp;host_regex=db02"</pre>
+Change the start_time to a UNIX timestamp or a well formed date.
+
+To download the latest release with Overlay events please visit
+
+<a href="https://github.com/vvuksan/ganglia-misc">https://github.com/vvuksan/ganglia-misc</a>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/05/31/announcing-ganglia-web-2-0rc1/">Announcing Ganglia Web 2.0RC1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-31T00:00:00-07:00" pubdate data-updated="true">May 31<span>st</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">We would like to announce our first release candidate of the improved Ganglia Web UI. We have talked about it in the past (see <a href="http://ganglia.info/?p=343">GWeb 2.0 post</a>) and we are finally ready to release it.
+
+You can download the release candidate from <a href="http://ganglia.info/downloads/testing/"></a>
+
+<a href="http://ganglia.info/downloads/testing/">http://ganglia.info/downloads/testing/</a>
+
+Look for archives named gweb. Documentation and installation instructions for the release can be found <a href="https://sourceforge.net/apps/trac/ganglia/wiki/ganglia-web-2">on our wiki</a>. Please report any installation issues by sending a message to the <a href="http://ganglia.info/?page_id=68">Ganglia General mailing list.</a> Alternatively if you need immediate assistance you can find us on <a href="http://freenode.net/irc_servers.shtml">Freenode IRC</a> channel #ganglia.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/03/10/easy-graph-aggregation/">Easy Graph Aggregation</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-10T00:00:00-08:00" pubdate data-updated="true">Mar 10<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">We have just introduced an experimental new feature to our GWeb 2.0 UI that we are very excited about. Feature is called easy graph aggregation as it allows you to graph the same metric across a number of hosts. This is often useful when you are proactively looking for problems within your infrastructure. We have made the feature even more powerful by allowing you to specify a regular expression that matches multiple hosts so if all your database servers are named db-something you can simply say db as your regular expression or db-0[1-5]. This feature is experimental so if you match too many hosts you may end up with a broken image however we have decided to put it out as a preview where we are going. Obligatory screenshots
+
+<strong>Line graph</strong>
+
+<img class="alignnone size-full wp-image-360" src="http://ganglia.info/wp-content/uploads/aggregate_line.png" alt="Easy Graph Aggregation Line graph" width="527" height="391" />
+
+<strong>Stacked graph</strong>
+
+<img class="alignnone size-full wp-image-361" src="http://ganglia.info/wp-content/uploads/aggregate_stack.png" alt="Easy Aggregate Stack Graph" width="533" height="390" />
+
+<strong>Next steps</strong>
+
+We need to add more error checking and bug fixes. Better composer UI and ability to add aggregate graphs to views. Stay tuned.
+
+If you&#8217;d like to play with you can try it on our <a href="http://fjrkr5ab.joyent.us/ganglia-2.0/">demo server</a>. You can also read more about <a href="http://ganglia.info/?p=343">GWeb 2.0 and how to download it here</a>.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/03/08/gweb-2-0/">Gweb 2.0</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-08T00:00:00-08:00" pubdate data-updated="true">Mar 8<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Ganglia has been around for over 10 years but it is surprising even to me that our Web Frontend has seen very little cosmetic changes over the years.
+
+Back in October 2010, I started an email thread in the ganglia-developers mailing-list to kickstart a &#8220;re-write&#8221; of the frontend code.  The idea is to make use of javascript libraries to improve on the user experience and allow customizations to cater to individual needs.  We also wanted to tackle issues like visualizing a lot of data which large sites managing tens of thousands of computers are increasingly facing. These sites also tend to track upwards of hundreds of metrics per hosts bringing total metrics monitored in the range of millions.
+
+These are indeed challenging and interesting times for the project as we see a shift in the user base from the traditional High Performance Computing and Grid sites to large web 2.0 companies and companies in the Cloud space where hosts are dynamically provisioned. 
+
+After months of coding, we have something to show.  This is namely the effort of <a href="http://twitter.com/vvuksan">Vladimir Vuksan</a>, <a href="http://twitter.com/kastner">Erik Kastner</a>, <a href="http://twitter.com/johngoulah">John Goulah</a> and <a href="http://twitter.com/mostlyalex">Alex Dean</a>.  A demo of the new frontend can be seen <a href="http://fjrkr5ab.joyent.us/ganglia-2.0">here</a>.
+
+(Thanks <a href="http://www.joyent.com/">Joyent</a> for hosting and <a href="http://twitter.com/phalenor">Andy Cobaugh</a> from Penn State University, Center for Comparative Genomics and Bioinformatics for providing access to their gmond metrics data)
+
+For more in-depth description about this work, you can read Vladimir&#8217;s blog posts:
+
+<a href="http://vuksan.com/blog/2010/12/10/rethinking-ganglia-web-ui">http://vuksan.com/blog/2010/12/10/rethinking-ganglia-web-ui</a>
+<a href="http://vuksan.com/blog/2011/02/20/json-representation-for-graphs-in-ganglia">http://vuksan.com/blog/2011/02/20/json-representation-for-graphs-in-ganglia</a>
+
+To play with the code, you can get it from <a href="https://github.com/vvuksan/ganglia-misc/tree/master/ganglia-web">GitHub</a>.
+
+We value your suggestions and feedback, so please don&#8217;t be shy and either tweet about it <a href="http://twitter.com/gangliainfo">@gangliainfo</a>, ping us on IRC #ganglia at irc.freenode.net or start an email thread at ganglia-developers mailing-list!
+
+We would like to release this code soon to the public, but we need your help to implement additional features, test the code, etc.  So if you are interested, please let us know!
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/12/03/career-opportunities-at-cloudera/">Career Opportunities at Cloudera</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-12-03T00:00:00-08:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">For people who may not know me, I&#8217;m the person who wrote ganglia in 1999, open-sourced it the following year and then worked to create a strong, sustainable community around the software.  Take a quick peak at the ganglia web site and you see just how pervasively ganglia is deployed around the world, on dozens of platforms, at scales that would crush other monitoring systems.  I never imagined, when I started work on ganglia, that it would still be going strong ten years later.  The credit for the success of ganglia goes to the volunteers, hackers and operators who have written responses to support requests, submitted code patches and provided detailed bug reports.  
+
+While I played a leadership role in the first five years of the project, my role in the project the last five years has been minimal as I focused my efforts on developing new technologies at startups in Silicon Valley.  Luckily, the ganglia community has had no shortage of leaders like Bernard Li and Brad Nicholes who have stepped up to keep us moving forward.
+
+In Jan 2009, I joined a startup called <a href="http://www.cloudera.com/">Cloudera</a>.  In a nutshell, we enable our customers to build clusters that are capable of storing and processing multiple petabytes of structured and unstructured complex data.  Cloudera is a great fit for me personally because I&#8217;m an open-source advocate who loves to work on distributed software that runs at scale.  <a href="http://www.cloudera.com/downloads/">The platform that Cloudera provides</a> for distributed data analysis is free, Apache-licensed and open-source and has proven to help extract value from data on clusters with 32 nodes or 2000.  We also have a suite of Enterprise software that complements our platform and provides a desktop environment inside your web browser for managing your cluster and data.
+
+While the overall economy is slowly moving toward recovery, the growth at Cloudera over the last two years has been astonishing and I&#8217;d love nothing more than to work side-by-side with you at Cloudera.  As a member of the ganglia community, you understand the unique challenges of deploying, configuring and monitoring clusters at scale. You can see the <a href="http://www.cloudera.com/company/careers/">list of available positions on our Careers web page</a>.  By the way, we&#8217;re not just looking for talented cluster admins but also general IT gurus to help us manage our infrastructure as our company expands.  If you would like to learn more, please don&#8217;t hesitate to email me at &lt;matt at cloudera dot com&gt;.  I&#8217;m looking forward to hearing from you.
+
+To ten more years.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/10/27/ganglia-bof-at-lisa-10/">Ganglia BoF at LISA &#8216;10</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-10-27T00:00:00-07:00" pubdate data-updated="true">Oct 27<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">We will be having a BoF (Birds of Feather Session) at LISA &#8216;10 this year to be held in San Jose, California, USA.  Details here: 	<a href="http://www.usenix.org/events/lisa10/bofs.html#ganglia">http://www.usenix.org/events/lisa10/bofs.html#ganglia</a>.
+
+Even if you have no plans of attending the conference but are local to the San Francisco Bay Area, you can sign up for a free Exhibits-Only Pass to get access to the BoF.  Sign up link here: <a href="https://db.usenix.org/cgi-bin/Conference/lisa10/reg.cgi">https://db.usenix.org/cgi-bin/Conference/lisa10/reg.cgi</a>.
+
+Hope to see you there!
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/10/25/got-tweets/">Got Tweets?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-10-25T00:00:00-07:00" pubdate data-updated="true">Oct 25<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Did you know that we are on Twitter?  Follow us @gangliainfo here: <a href="http://twitter.com/gangliainfo">http://twitter.com/gangliainfo</a>.  If you have something interesting to say about Ganglia, use the hashtag #Ganglia (be nice, we are sharing this with the Biology folks) and we just might re-tweet it!  Twitter feed is also available in this webpage on the right hand side (although re-tweets are hidden in this view).
+
+Happy Twittering/Tweeting!
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/4/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/2/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/ganglia-web-3-5-7-released/">Ganglia Web 3.5.7 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-web-3-5-6-released/">Ganglia Web 3.5.6 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-3-5-0-released/">Ganglia 3.5.0 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/16/ganglia-web-3-5-2-released/">Ganglia Web 3.5.2 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/13/ganglia-web-3-5-1-release-security-advisory/">Ganglia Web 3.5.1 Release - Security Advisory</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Introducing Overlay Events - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="One of the commonly asked Ganglia feature requests has been the ability to overlay events as vertical lines e.g. to show deploys. Unfortunately there &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ganglia.github.com/blog/2011/06/14/introducing-overlay-events">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ganglia.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Introducing Overlay Events</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-14T00:00:00-07:00" pubdate data-updated="true">Jun 14<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content">One of the commonly asked Ganglia feature requests has been the ability to overlay events as vertical lines e.g. to show deploys. Unfortunately there was no built in functionality in Ganglia to do that but it had to be &#8220;hacked in&#8221;. For example <a href="http://vuksan.com/blog/2010/06/28/overlay-deploy-timeline-on-your-ganglia-graphs/">in this blog post</a> there is a description of one approach. Fortunately that is now history as we have added &#8220;Overlay Events&#8221;. This is a generic feature that allows you to specify a list of events including time (unix timestamp) and description as well as grid, cluster and host regex that this event applies to. This way you can limit an overlay event to a subset of hosts e.g. DB backup affects only the DB slave server. You will end up with something like this
+<img src="../wp-content/uploads/events.png" alt="Overlay events" width="397" height="210" />
+
+To enable overlay events add following to your conf.php
+<pre>$conf['overlay_events'] = true;</pre>
+Events are configured using a simple JSON array. By default events are stored in the following file
+<pre>$conf['overlay_events_file'] = $conf['conf_dir'] . "/events.json";</pre>
+If you are using defaults that is
+
+/var/lib/ganglia/conf/events.json
+
+Example of the events JSON file used to create the above overlay looks like this
+<pre>[
+ {"start_time":1308496361,
+ "summary":"DB Backup",
+ "description":"Prod daily db backup",
+ "grid":"*",
+ "cluster":"*",
+ "host_regex":"centos1"},
+ {"start_time":1308497211,
+ "summary":"FS cleanup",
+ "grid":"*",
+ "cluster":"*",
+ "host_regex":"centos1"}
+]</pre>
+Currently only host_regex is supported but we are working on adding filtering by grid and cluster. All you now need to do is decide which events to include. Example events you can include
+<ul>
+	<li>Start time of particular periodic jobs such as DB backups, DB clean ups</li>
+	<li>Deploys</li>
+	<li>Nagios alerts sent</li>
+</ul>
+Alternatively you can try the Events API e.g. I have added following command to be executed before my critical jobs start
+<pre>wget -O /dev/null -q "http://mygangliahost.com/ganglia/api/events_api.php?action=add&amp;start_time=now&amp;summary=Prod DB Backup&amp;host_regex=db02"</pre>
+Change the start_time to a UNIX timestamp or a well formed date.
+
+To download the latest release with Overlay events please visit
+
+<a href="https://github.com/vvuksan/ganglia-misc">https://github.com/vvuksan/ganglia-misc</a>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-06-14T00:00:00-07:00" pubdate data-updated="true">Jun 14<span>th</span>, 2011</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ganglia.github.com/blog/2011/06/14/introducing-overlay-events/" data-via="" data-counturl="http://ganglia.github.com/blog/2011/06/14/introducing-overlay-events/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/05/31/announcing-ganglia-web-2-0rc1/" title="Previous Post: Announcing Ganglia Web 2.0RC1">&laquo; Announcing Ganglia Web 2.0RC1</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/06/15/announcing-ganglia-web-2-0-0/" title="Next Post: Announcing Ganglia Web 2.0.0">Announcing Ganglia Web 2.0.0 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/ganglia-web-3-5-7-released/">Ganglia Web 3.5.7 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-web-3-5-6-released/">Ganglia Web 3.5.6 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-3-5-0-released/">Ganglia 3.5.0 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/16/ganglia-web-3-5-2-released/">Ganglia Web 3.5.2 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/13/ganglia-web-3-5-1-release-security-advisory/">Ganglia Web 3.5.1 Release - Security Advisory</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

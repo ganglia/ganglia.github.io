@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ganglia 2.5.0 is Released!! - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="The Ganglia Development Team is happy to announce the release of ganglia 2.5.0! This latest release has been in the works for over two and a half &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ganglia.github.com/blog/2002/09/20/ganglia-250-is-released">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ganglia.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ganglia 2.5.0 Is Released!!</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-09-20T00:00:00-07:00" pubdate data-updated="true">Sep 20<span>th</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content">The Ganglia Development Team is happy to announce the release of ganglia 2.5.0! This latest release has been in the works for over two and a half months with input and work from dozens of open source developers.
+
+Ganglia Now Delivers
+
+    * The Ganglia Meta Daemon (gmetad) is now written in C and part of the monitoring core distribution and:
+          o is multithreaded and asynchronous so transient data source failures have no effect on other data sources
+          o uses gperf perfect hash algorithms to dramatically increase the efficiency of parsing XML and storing data (vastly superior to the perl gmetad)
+          o works with both 2.5.0 and pre-2.5.0 data sources
+          o much more simple and standard installation 
+    * The PHP webfrontend has been updated
+          o a new &#8220;physical view&#8221; allows you to organize your cluster display to match each host to the appropriate rack location
+          o automatically separates constant metrics from volatile metrics on the host detail page
+          o allows you to click a single hyperlink and see if a newer version of your web frontend and backend (gmetad) are available
+          o supports sorting by hostname 
+    * The ganglia XML has been enriched to export more critical information
+          o a new SLOPE attribute (which can be set to either &#8220;zero&#8221;, &#8220;positive&#8221;, &#8220;negative&#8221;, or &#8220;both&#8221;) allows gmetad and the PHP webfrontend to efficiently separate constant data metrics from volatile ones. the SLOPE attribute will also allow gmetad to store data in round-robin databases in two formats: GAUGE or COUNTER
+          o new TN (time now) and TMAX (timeout) allow for per-metric live/stale determination
+          o the DTD has been relaxed to allow for HOSTS with no METRICS for installations which only want heartbeat data
+          o a LATLONG tag allows you to identify the latitude and longitude of each of your data sources for GPS mapping 
+    * Complete rewrite of underlying network library by incorporating the best that libdnet [http://libdnet.sourceforge.net/] and gnet [http://www.gnetlibrary.org/] have to offer into the ganglia source.
+          o fixes bug and limitations with the old underlying network functions
+          o will allow for interface autodiscovery and multiple interface processing and multicast forwarding in future releases 
+    * Ganglia has been ported to even more platforms: Linux (i386, ia64, sparc, alpha, powerpc, m68k, mips, arm, hppa, s390), Solaris, FreeBSD, AIX, IRIX, Tru64 and Windows (early beta on cygwin available soon).
+          o eight new metrics have been added to Linux to allowing monitoring of disk and network activity
+          o Solaris support has been dramatically increased with full support for all metrics and the addition of nine new Solaris-specific measures. 
+
+Thanks
+
+I would like to thank the developers on the Ganglia Development Team for their hard work. Ganglia 2.5.0 would not have been possible without the hard work of Preston Smith, Steve Wagner, Federico Sacerdoti, Matt Rice Brent Chun and Davide Tachella. If you just take a glance at the ganglia ChangeLog or the ganglia-developers list archive, you&#8217;ll get a feel for how much they have contributed both in code and ideas.
+
+Coming Very Soon
+
+    * Mason Katz is working with Carl Kesselman to have Ganglia export its data to Globus MDS.
+    * Matt Rice is finishing up a Windows port of ganglia using Cygwin 
+
+
+The Future
+
+We have begun early planning for the third generation of ganglia. Ganglia 3 will have a developer&#8217;s kit for creating modules which plug directly into the monitoring core using DSO, a hierarchical XML namespace, a simplified multicast packet format, better visulization tools and much more.
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-09-20T00:00:00-07:00" pubdate data-updated="true">Sep 20<span>th</span>, 2002</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ganglia.github.com/blog/2002/09/20/ganglia-250-is-released/" data-via="" data-counturl="http://ganglia.github.com/blog/2002/09/20/ganglia-250-is-released/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2002/07/01/gmetad-web-frontend-011-released/" title="Previous Post: gmetad web frontend 0.1.1 released!">&laquo; gmetad web frontend 0.1.1 released!</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2002/11/08/ganglia-251-released/" title="Next Post: Ganglia 2.5.1 Released!">Ganglia 2.5.1 Released! &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/ganglia-web-3-5-7-released/">Ganglia Web 3.5.7 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-web-3-5-6-released/">Ganglia Web 3.5.6 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-3-5-0-released/">Ganglia 3.5.0 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/16/ganglia-web-3-5-2-released/">Ganglia Web 3.5.2 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/13/ganglia-web-3-5-1-release-security-advisory/">Ganglia Web 3.5.1 Release - Security Advisory</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

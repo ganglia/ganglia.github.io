@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Upcoming Ganglia Web features - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="We have been working hard on new Ganglia Web features that will be part of Ganglia Web 2.2.0. These are the highlights Compare Hosts Allows you to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ganglia.github.com/blog/2011/11/24/upcoming-ganglia-web-features">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ganglia.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Upcoming Ganglia Web Features</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-24T00:00:00-08:00" pubdate data-updated="true">Nov 24<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content">We have been working hard on new Ganglia Web features that will be part of Ganglia Web 2.2.0. These are the highlights
+<h3>Compare Hosts</h3>
+Allows you to compare hosts across all the matching metrics (this can mean hundreds of graphs :-)). You supply a regular expression that matches a set of the hosts and Ganglia will aggregate all hosts for each metric. This is useful in those cases where you are trying to find why a particular host or hosts are performing differently then another set.
+
+<img class="alignnone size-full wp-image-474" title="Compare Hosts - Ganglia" src="http://ganglia.info/wp-content/uploads/comparehosts1.png" alt="Compare Hosts - Ganglia" width="518" height="688" />
+<h3>Built-in Nagios integration</h3>
+This feature allows you to use your <a href="http://blog.vuksan.com/2011/04/19/use-your-trending-data-for-alerting/">Ganglia trending data to alert in Nagios</a>. There a couple nice addition to the basic check functionality e.g.
+<ol>
+	<li>Check heartbeat - as you may know gmond daemons sends a periodic heartbeat (every 20 seconds by default). If the heartbeat is missing it is fair to assume host is down. This should avoid you from having to use things like check_ping and alert you to potential down time much quicker</li>
+	<li>Check multiple metrics - allows you to use a single check to multiple metrics on the same host ie. check that disk free on / is more than 30%, on /tmp more than 10% etc.</li>
+	<li>Check single metric across multiple hosts (not yet implemented) - use a single check to check low disk space on a set of hosts defined by a regular expression e.g. instead of having separate disk checks for every host you would have a single check that would give you a break down of hosts that were not OK.</li>
+</ol>
+If you want to peak at how basic check_metric alert works check out <a href="http://sourceforge.net/apps/trac/ganglia/wiki/ganglia_nagios_integration">Ganglia Nagios integration wiki document</a>.
+<h3>Aggregate graphs decomposition</h3>
+While viewing aggregate graphs with more than 6-7 items colors will start to blend together and it may be hard to distinguish what on graph is what. This feature allows you to decompose a graph by taking every item on the aggregate graph and putting it on a separate graph e.g. a graph like this
+
+<img class="size-full wp-image-472 alignnone" title="Aggregate Graph - Ganglia" src="http://ganglia.info/wp-content/uploads/agg11.png" alt="Aggregate Graph - Ganglia" width="397" height="216" />
+
+will decompose into this
+
+<img class="size-full wp-image-473 alignnone" title="Aggregate graph decomposition" src="http://ganglia.info/wp-content/uploads/decompose1.png" alt="Aggregate graph decomposition" width="550" height="674" />
+<h3>Flot client side rendering</h3>
+We have been using <a href="http://flot.googlecode.com/">flot</a> a Javascript graphing library for a while now. In this release we are planning to make it even more interactive ie. take items of graph dynamically etc.
+<h3>Utilization heatmaps</h3>
+In this release we are turning on utilization heatmaps instead of the old style pie charts e.g.
+
+<img class="alignnone size-full wp-image-469" title="heatmap" src="http://ganglia.info/wp-content/uploads/heatmap.png" alt="heatmap" width="401" height="499" />
+
+Most of the features have already been implemented. We are still polishing up the release and writing documentation. We could always use more help with testing and documenting things so if you are up to it please join us on Freenode channel #ganglia.
+
+If you&#8217;d like to test drive some of these changes please visit <a href="http://fjrkr5ab.joyent.us/ganglia-2.0/">our demo site.</a>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-24T00:00:00-08:00" pubdate data-updated="true">Nov 24<span>th</span>, 2011</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ganglia.github.com/blog/2011/11/24/upcoming-ganglia-web-features/" data-via="" data-counturl="http://ganglia.github.com/blog/2011/11/24/upcoming-ganglia-web-features/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/09/30/ganglia-web-2-1-8-released/" title="Previous Post: Ganglia Web 2.1.8 released">&laquo; Ganglia Web 2.1.8 released</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/12/13/479/" title="Next Post: Ganglia Web 2.2.0 released">Ganglia Web 2.2.0 released &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/ganglia-web-3-5-7-released/">Ganglia Web 3.5.7 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-web-3-5-6-released/">Ganglia Web 3.5.6 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-3-5-0-released/">Ganglia 3.5.0 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/16/ganglia-web-3-5-2-released/">Ganglia Web 3.5.2 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/13/ganglia-web-3-5-1-release-security-advisory/">Ganglia Web 3.5.1 Release - Security Advisory</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

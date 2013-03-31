@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ganglia 3.0.1 Released - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="The Ganglia Development Team is pleased to announce the release of Ganglia 3.0.1 (Wright) which is available for immediate download from http:// &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ganglia.github.com/blog/2005/03/24/ganglia-301-released">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ganglia.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ganglia 3.0.1 Released</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-03-24T00:00:00-08:00" pubdate data-updated="true">Mar 24<span>th</span>, 2005</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The Ganglia Development Team is pleased to announce the release of
+Ganglia 3.0.1 (Wright) which is available for immediate
+download from <a href="http://ganglia.info/downloads.php">http://ganglia.info/downloads.php</a> and features&#8230;</p>
+<dl>
+<dt><strong><a name="item_gmond_unicast_communication_bug_fixed"><strong>gmond Unicast Communication Bug Fixed</strong></a></strong><br />
+</dt>
+<dd>
+This serious bug caused unicast-only 
+gmond to completely stop sending metric updates after
+network failures.
+</dd>
+<p></p>
+<dt><strong><a name="item_gmond_2econf_conversion_bug_fixed"><strong>gmond.conf Conversion Bug Fixed</strong></a></strong><br />
+</dt>
+<dd>
+If you converted your old 2.5.x configuration files to 3.0.0 using
+the gmond conversion feature. e.g.
+</dd>
+<dd>
+<pre>
+  % gmond --convert my_old_gmond.conf &gt; my_new_gmond.conf</pre>
+</dd>
+<dd>
+<p>then you will want to change the host mask from 24 to 32 for all
+you trusted hosts.  e.g.</p>
+</dd>
+<dd>
+<pre>
+  tcp_accept_channel {
+    port = 8649
+    /* your trusted_hosts assuming ipv4 mask*/
+    acl { 
+       default = deny
+       access {
+        ip = &lt;trusted_host_ip&gt;
+        mask = 24 /* &lt;========== BUG! */
+      }
+    }
+  }</pre>
+</dd>
+<dd>
+<p>The conversion code in 3.0.1 correctly sets the host mask to 32.</p>
+</dd>
+<p></p>
+<dt><strong><a name="item_include"><strong>gmond.conf now processes include() statements</strong></a></strong><br />
+</dt>
+<dd>
+This simple feature provides more flexibility in configuring gmond. e.g.
+</dd>
+<dd>
+<pre>
+  globals {
+    include(globals.conf)
+  }</pre>
+</dd>
+<p></p>
+<dt><strong><a name="item_network_metrics_bug_fixed_for_linux_2_2e6_2ex_kern"><strong>Network Metrics Bug Fixed for Linux 2.6.x Kernels</strong></a></strong><br />
+</dt>
+<dd>
+A bug in the pkts_in/out and bytes_in/out collection code cause
+Linux 2.6.x system to report bogus network metrics.
+</dd>
+<p></p>
+<dt><strong><a name="item_cleaned_up_bug_in_rpm_for_package_upgrades"><strong>Cleaned up bug in RPM for package upgrades</strong></a></strong><br />
+</dt>
+<dd>
+When upgrading a previously installed ganglia package, the error in the spec
+file will result in a file named &#8220;1&#8221; written into the / directory.
+</dd>
+<p></p>
+<dt><strong><a name="item_freebsd_metric_collection_enhanced"><strong>FreeBSD Metric Collection Enhanced</strong></a></strong><br />
+</dt>
+<dd>
+There have been a number of bug fixed and cleanups of the metric
+collection code for FreeBSD thanks to the work of Brooks Davis.
+</dd>
+<p></p>
+<dt><strong><a name="item_host_view_update"><strong>Host view update</strong></a></strong><br />
+</dt>
+<dd>
+The host view web pages now express the time when gmond was started
+on the host thanks to the work of Jason A. Smith.
+</dd>
+<p></p></dl>
+<p>We have deployed a new bugzilla service at <a href="http://bugzilla.ganglia.info/.">http://bugzilla.ganglia.info/.</a> 
+This site was created for you to submit bug reports, feature requests and 
+upload patches for ganglia.</p>
+<p>If you have found ganglia to be useful in your organization, please consider 
+making a donation to the project at 
+<a href="http://sourceforge.net/donate/index.php?group_id=43021">http://sourceforge.net/donate/index.php?group_id=43021</a></p>
+<p>Thanks for using Ganglia!</p>
+<p>The Ganglia Development Team</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-03-24T00:00:00-08:00" pubdate data-updated="true">Mar 24<span>th</span>, 2005</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ganglia.github.com/blog/2005/03/24/ganglia-301-released/" data-via="" data-counturl="http://ganglia.github.com/blog/2005/03/24/ganglia-301-released/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2005/02/07/ganglia-300-released/" title="Previous Post: Ganglia 3.0.0 Released!">&laquo; Ganglia 3.0.0 Released!</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2005/11/08/ganglia-302-released/" title="Next Post: Ganglia 3.0.2 Released">Ganglia 3.0.2 Released &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/ganglia-web-3-5-7-released/">Ganglia Web 3.5.7 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-web-3-5-6-released/">Ganglia Web 3.5.6 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-3-5-0-released/">Ganglia 3.5.0 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/16/ganglia-web-3-5-2-released/">Ganglia Web 3.5.2 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/13/ganglia-web-3-5-1-release-security-advisory/">Ganglia Web 3.5.1 Release - Security Advisory</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

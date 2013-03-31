@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Ruby developers will be happy to know that there is now a Ganglia Ruby library thanks to Yasuhito TAKAMIYA! From: Yasuhito TAKAMIYA
+To: ganglia- &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ganglia.github.com/blog/page/8">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ganglia.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/11/25/libganglia-ruby-created/">Libganglia-ruby Created!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-11-25T00:00:00-08:00" pubdate data-updated="true">Nov 25<span>th</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Ruby developers will be happy to know that there is now a Ganglia Ruby library thanks to Yasuhito TAKAMIYA!
+
+From: Yasuhito TAKAMIYA
+To: ganglia-developers@lists.sourceforge.net
+Subject: [Ganglia-developers] libganglia-ruby released
+
+Hi ganglia developers,
+
+I released libganglia-ruby, a ruby wrapper to libganglia.
+
+Downloadable from (viewcvs):
+http://plateau.is.titech.ac.jp/cgi-bin/viewcvs.cgi/libganglia-ruby/
+
+RAA (Ruby Application Archive) libganglia-ruby page:
+http://www.ruby-lang.org/en/raa-list.rhtml?id=724
+
+thanks,
+&#8211;
+yasuhito
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/11/08/ganglia-251-released/">Ganglia 2.5.1 Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-11-08T00:00:00-08:00" pubdate data-updated="true">Nov 8<span>th</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">The Ganglia Development Team is pleased to announce the release of Ganglia 2.5.1! To download this release now, tune your web browser to http://ganglia.sourceforge.net/downloads.php
+Ganglia has added HPUX and MacOS X to the family of operating systems that ganglia supports. HPUX support has been brought to you through the efforts of Martin Knoblauch. MacOS X users have Preston Smith to thank for the MacOS X port.
+
+Ganglia now runs on Linux (i386, ia64, sparc, alpha, powerpc, m68k, mips, arm, hppa, s390), Solaris, FreeBSD, AIX, IRIX, Tru64, HPUX, MacOS X and Windows (cygwin beta).
+A great new feature added by Federico Sacerdoti in 2.5.1 is the ability to set the useful life of metrics with gmetric. A cleanup thread in gmond now periodically deletes expired metrics. This is very helpful for metrics which have a fixed lifetime such as processes and batch queue data.
+
+For example, running&#8230;
+
+gmetric &#8211;name=foo &#8211;value=2 &#8211;type=int32 &#8211;dmax=60
+
+would sent the metric &#8220;foo&#8221; to all gmond on the multicast channel and mark the metric for deletion in 60 seconds (however resending the metric during this 60 second interval will reset the counter).
+Leif Nixon also fixed a bug which caused gmond to crash occasionally when remote client prematurely closed connection.
+
+We hope you enjoy Ganglia 2.5.1 and encourage feedback, patch and bug reports.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/09/20/ganglia-250-is-released/">Ganglia 2.5.0 Is Released!!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-09-20T00:00:00-07:00" pubdate data-updated="true">Sep 20<span>th</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">The Ganglia Development Team is happy to announce the release of ganglia 2.5.0! This latest release has been in the works for over two and a half months with input and work from dozens of open source developers.
+
+Ganglia Now Delivers
+
+    * The Ganglia Meta Daemon (gmetad) is now written in C and part of the monitoring core distribution and:
+          o is multithreaded and asynchronous so transient data source failures have no effect on other data sources
+          o uses gperf perfect hash algorithms to dramatically increase the efficiency of parsing XML and storing data (vastly superior to the perl gmetad)
+          o works with both 2.5.0 and pre-2.5.0 data sources
+          o much more simple and standard installation 
+    * The PHP webfrontend has been updated
+          o a new &#8220;physical view&#8221; allows you to organize your cluster display to match each host to the appropriate rack location
+          o automatically separates constant metrics from volatile metrics on the host detail page
+          o allows you to click a single hyperlink and see if a newer version of your web frontend and backend (gmetad) are available
+          o supports sorting by hostname 
+    * The ganglia XML has been enriched to export more critical information
+          o a new SLOPE attribute (which can be set to either &#8220;zero&#8221;, &#8220;positive&#8221;, &#8220;negative&#8221;, or &#8220;both&#8221;) allows gmetad and the PHP webfrontend to efficiently separate constant data metrics from volatile ones. the SLOPE attribute will also allow gmetad to store data in round-robin databases in two formats: GAUGE or COUNTER
+          o new TN (time now) and TMAX (timeout) allow for per-metric live/stale determination
+          o the DTD has been relaxed to allow for HOSTS with no METRICS for installations which only want heartbeat data
+          o a LATLONG tag allows you to identify the latitude and longitude of each of your data sources for GPS mapping 
+    * Complete rewrite of underlying network library by incorporating the best that libdnet [http://libdnet.sourceforge.net/] and gnet [http://www.gnetlibrary.org/] have to offer into the ganglia source.
+          o fixes bug and limitations with the old underlying network functions
+          o will allow for interface autodiscovery and multiple interface processing and multicast forwarding in future releases 
+    * Ganglia has been ported to even more platforms: Linux (i386, ia64, sparc, alpha, powerpc, m68k, mips, arm, hppa, s390), Solaris, FreeBSD, AIX, IRIX, Tru64 and Windows (early beta on cygwin available soon).
+          o eight new metrics have been added to Linux to allowing monitoring of disk and network activity
+          o Solaris support has been dramatically increased with full support for all metrics and the addition of nine new Solaris-specific measures. 
+
+Thanks
+
+I would like to thank the developers on the Ganglia Development Team for their hard work. Ganglia 2.5.0 would not have been possible without the hard work of Preston Smith, Steve Wagner, Federico Sacerdoti, Matt Rice Brent Chun and Davide Tachella. If you just take a glance at the ganglia ChangeLog or the ganglia-developers list archive, you&#8217;ll get a feel for how much they have contributed both in code and ideas.
+
+Coming Very Soon
+
+    * Mason Katz is working with Carl Kesselman to have Ganglia export its data to Globus MDS.
+    * Matt Rice is finishing up a Windows port of ganglia using Cygwin 
+
+
+The Future
+
+We have begun early planning for the third generation of ganglia. Ganglia 3 will have a developer&#8217;s kit for creating modules which plug directly into the monitoring core using DSO, a hierarchical XML namespace, a simplified multicast packet format, better visulization tools and much more.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/07/01/gmetad-web-frontend-011-released/">Gmetad Web Frontend 0.1.1 Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-07-01T00:00:00-07:00" pubdate data-updated="true">Jul 1<span>st</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">this release of the gmetad web frontend fixes a bug in the MetaCluster snapshot hyperlinks. previously, the link was associated with same cluster across all hosts (obviously incorrect for more for MetaClusters with more than one cluster). now, all hosts in the snap shot are correctly linked to the right cluster.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/06/17/the-gmetad-web-frontend-v010-is-now-available/">The Gmetad Web Frontend v0.1.0 Is Now Available!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-06-17T00:00:00-07:00" pubdate data-updated="true">Jun 17<span>th</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">The gmetad web frontend allows you to browse the data collected by the gmetad backend to immediately see the state of multiple clusters. There is a live demo of the web frontend which shows just want this component can do.
+
+The gmetad web frontend requires that you upgrade to gmetad version 0.1.1.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/05/31/the-ganglia-meta-daemon-v010-is-released/">The Ganglia Meta Daemon v0.1.0 Is Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-05-31T00:00:00-07:00" pubdate data-updated="true">May 31<span>st</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">The Ganglia Meta Daemon (gmetad) allows you to merge data from seperate gmond processes together into a single meta-cluster image. All data is stored in RRD and XML format for client applications to browse. The PHP frontend is being developed now and will be released in the coming week(s).
+
+A bug fix for the monitoring core has also been released. Version 2.4.0 of the monitoring core occasionally would consider a node dead even though it wasn&#8217;t but this was fixed in 2.4.1.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/05/13/version-240-of-the-monitoring-core-is-released/">Version 2.4.0 of the Monitoring Core Is Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-05-13T00:00:00-07:00" pubdate data-updated="true">May 13<span>th</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">2002-05-13 Matt Massie
+· Changed pre_process_node() gethostbyaddr() error reporting to be more sane for environments with nameservice problems
+· Updated listen.c to prevent out-of-range multicasted key values from crashing gmond in debug mode
+2002-05-06 Matt Massie
+· Added an explicit heartbeat metric to gmond along with a GMOND_STARTED HOST attribute which removes the need for a 90 second delay in gmond restarts
+· Updated linux.c to correctly support the ia64 architecture
+2002-05-01 Matt Massie
+· Gmond now has a configuration file for its configuration instead of passing commandline arguments
+2002-04-26 Asaph Zemach
+· Completely rewrote ./gmond/machines/linux.c to be much more efficient by removing the need for 2 threads and pthread mutexes.
+2002-04-26 Matt Massie
+· Modified net.c setsockopt() functions to be more portable
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/05/12/64bit-clean-execution-environment-available/">64bit Clean Execution Environment Available</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-05-12T00:00:00-07:00" pubdate data-updated="true">May 12<span>th</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">version 0.2.1/0.3.4 of the execution environment is released and runs on Linux ia64 platform
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/04/23/ganglia-execution-environment-released/">Ganglia Execution Environment Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-04-23T00:00:00-07:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">As promised, the ganglia execution environment has been released! The execution environment requires at least version 2.3.0 of the ganglia monitoring core be installed. The Ganglia Documentation has been updated to include all the information you need to know about installing and using the executiong components.
+
+There have been a number of changes to the monitoring core:
+
+2002-04-19 Matt Massie
+· Fixed a bug in the .spec file where upgrades failed if gmond was not up
+· Updated autoconf to correctly configure ia64 machines
+
+2002-04-18 Matt Massie
+· Enabled setsockopt SO_REUSEADDR for the mcast_join socket in order allow multiple instances of gmond to listen to the same multicast channel
+
+2002-04-17 Matt Massie
+· Added the &#8211;list and &#8211;single_line option to gstat for output flexibility
+
+2002-04-17 Alan Hagge
+· Added preliminary support for IRIX
+
+2002-04-16 Matt Massie
+· Added the gexec metric in preparation for the release of gexec
+· Updated the gexec_cluster() function in libganglia to pull in more data from the XML and handle unresolved names and names without domains correctly
+· Updated gstat to print the updated information from gexec_cluster()
+· Added a &#8211;no_gexec flag to gmond for hosts that are not part of the computation cluster (file servers, frontends, etc)
+· Added a &#8211;all_trusted flag where gmond sees ALL hosts as trusted as suggested by Martin Knoblauch
+· Removed goto statement in pre_process_node() function to avoid rare looping bug thanks to feedback from Mike Snitzer
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/04/08/monitoring-core-v223-released/">Monitoring Core v2.2.3 Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-04-08T00:00:00-07:00" pubdate data-updated="true">Apr 8<span>th</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>Preston Smith added AIX support
+</li><li>Fixed a bug in the barrier code used in gmond
+</li><li>Fixed mcast_connect() on non-Linux systems related to the IP_MULTICAST_TTL option
+</li><li>Added the &#8211;no_setuid and &#8211;setuid flags to provide more euid flexibility
+</li></ul>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/9/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/7/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/ganglia-web-3-5-7-released/">Ganglia Web 3.5.7 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-web-3-5-6-released/">Ganglia Web 3.5.6 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-3-5-0-released/">Ganglia 3.5.0 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/16/ganglia-web-3-5-2-released/">Ganglia Web 3.5.2 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/13/ganglia-web-3-5-1-release-security-advisory/">Ganglia Web 3.5.1 Release - Security Advisory</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://ganglia.github.com/atom.xml" rel="self"/>
   <link href="http://ganglia.github.com/"/>
-  <updated>2013-03-30T17:28:20-07:00</updated>
+  <updated>2013-03-30T17:52:20-07:00</updated>
   <id>http://ganglia.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,5 +12,391 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia Web 3.5.7 released]]></title>
+    <link href="http://ganglia.github.com/blog/2013/02/18/ganglia-web-3-5-7-released/"/>
+    <updated>2013-02-18T00:00:00-08:00</updated>
+    <id>http://ganglia.github.com/blog/2013/02/18/ganglia-web-3-5-7-released</id>
+    <content type="html"><![CDATA[Ganglia Web 3.5.7 has been released. Previous version (3.5.6) omitted key files from packaging. This version corrects it
+
+Download the release from
+
+<a href="https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.7/">https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.7/</a>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia Web 3.5.6 released]]></title>
+    <link href="http://ganglia.github.com/blog/2013/02/14/ganglia-web-3-5-6-released/"/>
+    <updated>2013-02-14T00:00:00-08:00</updated>
+    <id>http://ganglia.github.com/blog/2013/02/14/ganglia-web-3-5-6-released</id>
+    <content type="html"><![CDATA[<div>
+
+Ganglia Web 3.5.6 has been released. Major changes are
+<ul>
+	<li>Number of fixes to address XSS (Cross Site Scripting) issues</li>
+	<li>Enhancement to the host view if use option  &#8220;metric_groups_initially_collapsed&#8221;. Clicking on metric groups  dynamically loads images instead of reloading the page</li>
+	<li>Incorporate legend in the selection when doing Inspect graph</li>
+</ul>
+If you are using Ganglia Web on a publicly available site you are advised to upgrade as soon as possible.
+
+Release notes can be found here
+
+<a href="https://github.com/ganglia/ganglia-web/wiki/Release-Notes">https://github.com/ganglia/ganglia-web/wiki/Release-Notes</a></div>
+<div>
+
+Download the release from
+
+<a href="https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.6/">https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.6/</a></div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia 3.5.0 released]]></title>
+    <link href="http://ganglia.github.com/blog/2013/02/14/ganglia-3-5-0-released/"/>
+    <updated>2013-02-14T00:00:00-08:00</updated>
+    <id>http://ganglia.github.com/blog/2013/02/14/ganglia-3-5-0-released</id>
+    <content type="html"><![CDATA[Ganglia dev team is happy to announce release of Ganglia 3.5.0. Key features in this release are
+<ul>
+	<li>gmond uses a separate thread to service gmetad requests. This should improve performance</li>
+	<li>Updates to a number of core Python collection modules</li>
+</ul>
+You can download the latest release from
+
+<a href="http://sourceforge.net/projects/ganglia/files/ganglia%20monitoring%20core/">http://sourceforge.net/projects/ganglia/files/ganglia%20monitoring%20core/</a>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia Web 3.5.2 released]]></title>
+    <link href="http://ganglia.github.com/blog/2012/07/16/ganglia-web-3-5-2-released/"/>
+    <updated>2012-07-16T00:00:00-07:00</updated>
+    <id>http://ganglia.github.com/blog/2012/07/16/ganglia-web-3-5-2-released</id>
+    <content type="html"><![CDATA[Ganglia Web 3.5.2 has been released. Major changes are
+<ul>
+	<li>Fix for stacked graphs not showing after upgrading to 3.5.1</li>
+	<li>Inspect graph now uses AJAX calls to retrieve data which should help in situations where users use Basic authentication</li>
+</ul>
+You can find release notes here
+
+<a href="https://github.com/ganglia/ganglia-web/wiki/Release-Notes">https://github.com/ganglia/ganglia-web/wiki/Release-Notes</a>
+
+Download the release from
+
+<a href="https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.2/">https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.2/</a>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia Web 3.5.1 Release - Security Advisory]]></title>
+    <link href="http://ganglia.github.com/blog/2012/07/13/ganglia-web-3-5-1-release-security-advisory/"/>
+    <updated>2012-07-13T00:00:00-07:00</updated>
+    <id>http://ganglia.github.com/blog/2012/07/13/ganglia-web-3-5-1-release-security-advisory</id>
+    <content type="html"><![CDATA[There is a security issue in Ganglia Web going back to at least 3.1.7 which can lead to arbitrary script being executed with web user privileges possibly leading to a machine compromise. Issue has been fixed in the latest version of Ganglia Web which can be downloaded from
+
+<a href="https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.1/">https://sourceforge.net/projects/ganglia/files/ganglia-web/3.5.1/</a>
+
+If you are running Ganglia Web open on the internet you are advised to upgrade ASAP or at a minimum password protect access to Ganglia Web.
+
+We&#8217;ll have a write up about details of the vulnerability in few days.
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Overlaying timeshifted data]]></title>
+    <link href="http://ganglia.github.com/blog/2012/05/16/overlaying-timeshifted-data/"/>
+    <updated>2012-05-16T00:00:00-07:00</updated>
+    <id>http://ganglia.github.com/blog/2012/05/16/overlaying-timeshifted-data</id>
+    <content type="html"><![CDATA[Often times when troubleshooting an issue it is useful to compare current data to data from a previous period. For example you observe high load on one machine and want to compare it to the load from a previous day. In the past you would simply open up two browser windows with data from each period and compare them. This may prove tricky as you may be dealing with different Y scales. To help with that we have recently added ability to overlay timeshifted data onto any host metric graph in Ganglia. What this means is that next to each metric graph you will see a button that says Timeshift. Clicking on it will overlay data from the same period prior to it e.g. if you are viewing hour it will overlay data from an hour ago, if you are viewing day it will overlay data from a day ago etc. For example this shows one minute load average overlaid with data from yesterday
+
+[caption id=&#8221;attachment_546&#8221; align=&#8221;alignnone&#8221; width=&#8221;583&#8221; caption=&#8221;Timeshifted load one average&#8221;]<img class="size-full wp-image-546" title="Timeshift Load One average" src="http://ganglia.info/wp-content/uploads/timeshift_load.png" alt="Timeshift load one average" width="583" height="237" />[/caption]
+
+whereas graph below displays data from a week ago overlaid over this weeks data
+
+[caption id=&#8221;attachment_545&#8221; align=&#8221;alignnone&#8221; width=&#8221;583&#8221; caption=&#8221;Timeshift overlay CPU user&#8221;]<img class="size-full wp-image-545" title="Timeshift overlay CPU User" src="http://ganglia.info/wp-content/uploads/timeshift_cpu_user1.png" alt="Timeshift overlay CPU user" width="583" height="237" />[/caption]
+
+Preliminary support for this feature has already landed in the trunk of our Ganglia Web repository
+
+<a href="https://github.com/ganglia/ganglia-web">https://github.com/ganglia/ganglia-web</a>
+
+It is full usable although we are working on refining it. This should be included in Ganglia Web 3.5.0 when it&#8217;s fully ready.
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia Web 3.4.2 released]]></title>
+    <link href="http://ganglia.github.com/blog/2012/05/08/ganglia-web-3-4-2-released/"/>
+    <updated>2012-05-08T00:00:00-07:00</updated>
+    <id>http://ganglia.github.com/blog/2012/05/08/ganglia-web-3-4-2-released</id>
+    <content type="html"><![CDATA[The Ganglia team is pleased to release Ganglia Web 3.4.2.  Notable changes are:
+
+<ul>
+<li>Improvements to the Live Dashboard</li>
+<li>Fixed the aggregate graphs metric auto complete which was broken in 3.4.1</li>
+<li>Add ability to specify critical and warning thresholds which can be used in Live Dashboard and Views</li>
+<li>Minor bug fixes</li>
+</ul>
+
+This release can be downloaded <a href="http://sourceforge.net/projects/ganglia/files/ganglia-web/3.4.2/">here</a>.
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia 3.3.7 released]]></title>
+    <link href="http://ganglia.github.com/blog/2012/05/08/ganglia-3-3-7-released/"/>
+    <updated>2012-05-08T00:00:00-07:00</updated>
+    <id>http://ganglia.github.com/blog/2012/05/08/ganglia-3-3-7-released</id>
+    <content type="html"><![CDATA[The Ganglia team is pleased to announce the release of 3.3.7.  The following issues have been fixed in <em>gmond</em>:
+
+<ul>
+<li>BUG100: Fails to start in Solaris containers</li>
+<li>Fails to start when no address on the network interface (added retry_bind parameter)</li>
+<li>BUG321: Fails to start when Solaris CPU is in FAILED state (segmentation fault)</li>
+</ul>
+
+The release can be immediately downloaded <a href="http://sourceforge.net/projects/ganglia/files/ganglia%20monitoring%20core/3.3.7/">here</a>.
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia 3.3.6 released]]></title>
+    <link href="http://ganglia.github.com/blog/2012/04/19/ganglia-3-3-6-released/"/>
+    <updated>2012-04-19T00:00:00-07:00</updated>
+    <id>http://ganglia.github.com/blog/2012/04/19/ganglia-3-3-6-released</id>
+    <content type="html"><![CDATA[The Ganglia Development Team is happy to announce the release of Ganglia 3.3.6.  This release fixes the following bug:
+
+<a href="http://bugzilla.ganglia.info/cgi-bin/bugzilla/show_bug.cgi?id=327">BUG327</a>: memory leak when receive channel is not configured or not hearing any data
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia 3.3.5 released]]></title>
+    <link href="http://ganglia.github.com/blog/2012/04/05/ganglia-3-3-5-released/"/>
+    <updated>2012-04-05T00:00:00-07:00</updated>
+    <id>http://ganglia.github.com/blog/2012/04/05/ganglia-3-3-5-released</id>
+    <content type="html"><![CDATA[The Ganglia Development Team is happy to announce the release of Ganglia 3.3.5.  This is mainly a bugfix release for 3.3.1 and all users of the 3.3.x series are encouraged to upgrade.
+
+For more details regarding this release, please refer to the <a href="https://github.com/ganglia/monitor-core/wiki/Release-Notes">Release Notes</a>.  Downloads are available at <a href="http://sourceforge.net/projects/ganglia/files/ganglia%20monitoring%20core/3.3.5/">SourceForge</a>.
+
+Work is already under way for the next release, please stay tuned for upcoming enhancements to the project!
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Adding trendline to your graphs]]></title>
+    <link href="http://ganglia.github.com/blog/2012/03/08/adding-trendline-to-your-graphs/"/>
+    <updated>2012-03-08T00:00:00-08:00</updated>
+    <id>http://ganglia.github.com/blog/2012/03/08/adding-trendline-to-your-graphs</id>
+    <content type="html"><![CDATA[As part of our upcoming release of Ganglia 3.3.2 you will have the ability to add a trend line to any host metric. Let&#8217;s say you wanted to know when you will need to add more disk space to a  particular machine.
+
+<img title="Disk space trend with 3 months of data" src="../wp-content/uploads/diskspace-3mthtrend.png" alt="Disk space trend with 3 months of data" width="523" height="272" />
+
+We are &#8220;safe&#8221; for about a year. Or let&#8217;s say you wanted to see how your web server 90th percentile has trended.
+
+<img class="size-full wp-image-498 alignnone" title="90th percentile Apache time using last 6 months of data" src="http://ganglia.info/wp-content/uploads/90thpercentile-6mthtrend.png" alt="90th percentile Apache time using last 6 months of data" width="523" height="272" />
+
+This takes calculates trend based on last six month of data (which is a default). That looks pretty good however let&#8217;s see how it looks if we take 12 months of data
+
+<img class="size-full wp-image-499 alignnone" title="90thpercentile Apache time with 12 month trend" src="http://ganglia.info/wp-content/uploads/90thpercentile-12mthtrend.png" alt="90thpercentile Apache time with 12 month trend" width="523" height="272" />
+
+Not so good. Trending interface has easy controls that allow you to easily change how far to extend the trend line and how far back to go
+e.g.
+
+<img title="ganglia_trends" src="../wp-content/uploads/ganglia_trends1.png" alt="ganglia_trends" width="538" height="21" />
+
+Enjoy.
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia 3.3.1 released]]></title>
+    <link href="http://ganglia.github.com/blog/2012/02/08/ganglia-3-3-1-released/"/>
+    <updated>2012-02-08T00:00:00-08:00</updated>
+    <id>http://ganglia.github.com/blog/2012/02/08/ganglia-3-3-1-released</id>
+    <content type="html"><![CDATA[We are happy to announce release of Ganglia 3.3.1. This release provides several enhancements to our web frontend as well as additional capabilities for exporting data to Graphite.
+
+Please refer to our <a href="https://github.com/ganglia/monitor-core/wiki/Release-Notes">release note</a>. You can download the latest release at <a href="https://sourceforge.net/projects/ganglia/files/ganglia%20monitoring%20core/">SourceForge</a>.
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia 3.3.0 released]]></title>
+    <link href="http://ganglia.github.com/blog/2012/02/01/ganglia-3-3-0-released/"/>
+    <updated>2012-02-01T00:00:00-08:00</updated>
+    <id>http://ganglia.github.com/blog/2012/02/01/ganglia-3-3-0-released</id>
+    <content type="html"><![CDATA[We are happy to announce the release of Ganglia 3.3.0. Highlights of this release are
+<ul>
+	<li>Ganglia Monitor Core is now shipped with our second generation Ganglia Web UI.</li>
+	<li>Gmetad Daemon now supports sending metrics to <a href="http://graphite.wikidot.com">Graphite</a> (carbon)</li>
+	<li>sFlow supports additional metric sources such as<a href="http://blog.sflow.com/2011/12/using-ganglia-to-monitor-web-farms.html"> JMX, memcache, Apache</a></li>
+	<li>Gmond now comes bundled with a number of additional metrics e.g. disk statistics, network interface utilization etc.</li>
+</ul>
+Full Release notes can be found on <a href="https://github.com/ganglia/monitor-core/wiki/Release-Notes">Github</a>.
+
+You can download the release from <a href="https://sourceforge.net/projects/ganglia/files/ganglia%20monitoring%20core/">SourceForge.</a>
+
+Please report any issues with the release to our <a href="https://github.com/ganglia/monitor-core/issues">GitHub issue tracker</a>.
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Putting metrics data on a common "bus"]]></title>
+    <link href="http://ganglia.github.com/blog/2011/12/29/putting-metrics-data-on-a-common-bus/"/>
+    <updated>2011-12-29T00:00:00-08:00</updated>
+    <id>http://ganglia.github.com/blog/2011/12/29/putting-metrics-data-on-a-common-bus</id>
+    <content type="html"><![CDATA[<a href="https://twitter.com/patrickdebois">Patrick Debois</a> has kicked of an interesting set of projects to put metric  information on a common &#8220;bus&#8221;. For example he has implemented a ruby based daemon that  parses Ganglia gmond packets and puts them on a ZeroMQ pub/sub bus. Once it&#8217;s there you can &#8220;subscribe&#8221; with a client of your choice and do transforms to the data e.g.
+<ul>
+	<li> feed graphite or another monitoring tool</li>
+	<li>insert data into a SQL database</li>
+	<li>feed Nagios using passive checks</li>
+</ul>
+Thanks to Patrick for a great idea and implementation. Now let&#8217;s get to work on useful subscribers.
+
+Gmond-zmq <a href="https://github.com/jedi4ever/gmond-zmq">https://github.com/jedi4ever/gmond-zmq</a>
+
+Statsd-zmq <a href="https://github.com/jedi4ever/statsd">https://github.com/jedi4ever/statsd</a>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia Web 2.2.0 released]]></title>
+    <link href="http://ganglia.github.com/blog/2011/12/13/479/"/>
+    <updated>2011-12-13T00:00:00-08:00</updated>
+    <id>http://ganglia.github.com/blog/2011/12/13/479</id>
+    <content type="html"><![CDATA[Today we released version 2.2.0 of the Ganglia Web interface. New features present in this release are described in our &#8221;<a href="http://ganglia.info/?p=464">Upcoming Web Features post</a>&#8221;.
+
+Release can be downloaded from <a href="https://sourceforge.net/projects/ganglia/files/gweb/2.2.0/">https://sourceforge.net/projects/ganglia/files/gweb/2.2.0/</a>
+
+If you need help <a href="https://sourceforge.net/apps/trac/ganglia/wiki/ganglia-web-2#Installation">installation guide is here</a>.
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Upcoming Ganglia Web features]]></title>
+    <link href="http://ganglia.github.com/blog/2011/11/24/upcoming-ganglia-web-features/"/>
+    <updated>2011-11-24T00:00:00-08:00</updated>
+    <id>http://ganglia.github.com/blog/2011/11/24/upcoming-ganglia-web-features</id>
+    <content type="html"><![CDATA[We have been working hard on new Ganglia Web features that will be part of Ganglia Web 2.2.0. These are the highlights
+<h3>Compare Hosts</h3>
+Allows you to compare hosts across all the matching metrics (this can mean hundreds of graphs :-)). You supply a regular expression that matches a set of the hosts and Ganglia will aggregate all hosts for each metric. This is useful in those cases where you are trying to find why a particular host or hosts are performing differently then another set.
+
+<img class="alignnone size-full wp-image-474" title="Compare Hosts - Ganglia" src="http://ganglia.info/wp-content/uploads/comparehosts1.png" alt="Compare Hosts - Ganglia" width="518" height="688" />
+<h3>Built-in Nagios integration</h3>
+This feature allows you to use your <a href="http://blog.vuksan.com/2011/04/19/use-your-trending-data-for-alerting/">Ganglia trending data to alert in Nagios</a>. There a couple nice addition to the basic check functionality e.g.
+<ol>
+	<li>Check heartbeat - as you may know gmond daemons sends a periodic heartbeat (every 20 seconds by default). If the heartbeat is missing it is fair to assume host is down. This should avoid you from having to use things like check_ping and alert you to potential down time much quicker</li>
+	<li>Check multiple metrics - allows you to use a single check to multiple metrics on the same host ie. check that disk free on / is more than 30%, on /tmp more than 10% etc.</li>
+	<li>Check single metric across multiple hosts (not yet implemented) - use a single check to check low disk space on a set of hosts defined by a regular expression e.g. instead of having separate disk checks for every host you would have a single check that would give you a break down of hosts that were not OK.</li>
+</ol>
+If you want to peak at how basic check_metric alert works check out <a href="http://sourceforge.net/apps/trac/ganglia/wiki/ganglia_nagios_integration">Ganglia Nagios integration wiki document</a>.
+<h3>Aggregate graphs decomposition</h3>
+While viewing aggregate graphs with more than 6-7 items colors will start to blend together and it may be hard to distinguish what on graph is what. This feature allows you to decompose a graph by taking every item on the aggregate graph and putting it on a separate graph e.g. a graph like this
+
+<img class="size-full wp-image-472 alignnone" title="Aggregate Graph - Ganglia" src="http://ganglia.info/wp-content/uploads/agg11.png" alt="Aggregate Graph - Ganglia" width="397" height="216" />
+
+will decompose into this
+
+<img class="size-full wp-image-473 alignnone" title="Aggregate graph decomposition" src="http://ganglia.info/wp-content/uploads/decompose1.png" alt="Aggregate graph decomposition" width="550" height="674" />
+<h3>Flot client side rendering</h3>
+We have been using <a href="http://flot.googlecode.com/">flot</a> a Javascript graphing library for a while now. In this release we are planning to make it even more interactive ie. take items of graph dynamically etc.
+<h3>Utilization heatmaps</h3>
+In this release we are turning on utilization heatmaps instead of the old style pie charts e.g.
+
+<img class="alignnone size-full wp-image-469" title="heatmap" src="http://ganglia.info/wp-content/uploads/heatmap.png" alt="heatmap" width="401" height="499" />
+
+Most of the features have already been implemented. We are still polishing up the release and writing documentation. We could always use more help with testing and documenting things so if you are up to it please join us on Freenode channel #ganglia.
+
+If you&#8217;d like to test drive some of these changes please visit <a href="http://fjrkr5ab.joyent.us/ganglia-2.0/">our demo site.</a>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia Web 2.1.8 released]]></title>
+    <link href="http://ganglia.github.com/blog/2011/09/30/ganglia-web-2-1-8-released/"/>
+    <updated>2011-09-30T00:00:00-07:00</updated>
+    <id>http://ganglia.github.com/blog/2011/09/30/ganglia-web-2-1-8-released</id>
+    <content type="html"><![CDATA[Today we released version 2.1.8 of the Ganglia Web interface. Following changes are present in this release
+<ul>
+	<li>Better way of showing all metrics when metric groups are initially collapsed. You can see the new behavior if you set $conf[&#8216;metric_groups_initially_collapsed&#8217;] = true;</li>
+	<li>Fix for broken graph zooming</li>
+	<li>Show graph name in autorotation</li>
+</ul>
+Release can be downloaded from <a href="https://sourceforge.net/projects/ganglia/files/gweb/2.1.8/">https://sourceforge.net/projects/ganglia/files/gweb/2.1.8/</a>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia Web 2.1.7 released]]></title>
+    <link href="http://ganglia.github.com/blog/2011/08/25/ganglia-web-2-1-6-released/"/>
+    <updated>2011-08-25T00:00:00-07:00</updated>
+    <id>http://ganglia.github.com/blog/2011/08/25/ganglia-web-2-1-6-released</id>
+    <content type="html"><![CDATA[We have identified a bug that prevents host overview from working. This has been fixed in Ganglia Web 2.1.7.
+
+Release can be downloaded from <a href="https://sourceforge.net/projects/ganglia/files/gweb/2.1.7/">https://sourceforge.net/projects/ganglia/files/gweb/2.1.7/</a>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia Web 2.1.5 released]]></title>
+    <link href="http://ganglia.github.com/blog/2011/08/24/ganglia-web-2-1-5-released/"/>
+    <updated>2011-08-24T00:00:00-07:00</updated>
+    <id>http://ganglia.github.com/blog/2011/08/24/ganglia-web-2-1-5-released</id>
+    <content type="html"><![CDATA[Ganglia Web 2.1.5 has been released. This is a minor release with following changes
+<ul>
+	<li>Set upper and lower limits for aggregate graphs</li>
+	<li>Ability to add an event from the Ganglia UI</li>
+	<li>First pass at integrating Flot graphs into the UI (shows when you click on enlarge graph in host view)</li>
+	<li>Buttons for CSV and JSON exports have been changed to use CSS styled buttons</li>
+	<li>Collapse Metric Groups - hide all metrics unless you click on the metric group
+<ul>
+	<li>Add this to conf.php =&gt; $conf[&#8216;metric_groups_initially_collapsed&#8217;] = true;</li>
+</ul>
+</li>
+</ul>
+Release can be downloaded from <a href="https://sourceforge.net/projects/ganglia/files/gweb/2.1.5/">https://sourceforge.net/projects/ganglia/files/gweb/2.1.5/</a>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ganglia 3.2.0 Released]]></title>
+    <link href="http://ganglia.github.com/blog/2011/07/07/ganglia-3-2-0-released/"/>
+    <updated>2011-07-07T00:00:00-07:00</updated>
+    <id>http://ganglia.github.com/blog/2011/07/07/ganglia-3-2-0-released</id>
+    <content type="html"><![CDATA[The Ganglia Project is pleased to announce the official release of Ganglia 3.2.0.
+
+The official tarball is available for immediate download at:
+
+<a href="http://sourceforge.net/projects/ganglia/files/ganglia%20monitoring%20core/3.2.0/">http://sourceforge.net/projects/ganglia/files/ganglia%20monitoring%20core/3.2.0/</a>
+
+This release includes:
+<ul>
+	<li>sFlow support - <a href="http://blog.sflow.com/2010/10/ganglia.html">more</a> and <a href="http://blog.sflow.com/2011/07/ganglia-32-released.html">even more</a></li>
+	<li>hostname/ip override - you can specify an arbitrary host name and IP to be shown in the UI.</li>
+	<li>FreeBSD patches</li>
+	<li>Python module improvements</li>
+	<li>Bugfixes and improvements over 3.1.7</li>
+</ul>
+Ubuntu PPA:
+
+<a href="https://launchpad.net/~rufustfirefly/+archive/ganglia">ppa:rufustfirefly/ganglia</a>
+
+Validated platforms:
+<ul>
+	<li>Linux (Fedora/RedHat/CentOS, Debian)</li>
+</ul>
+Not validated platforms:
+<ul>
+	<li>[Open]Solaris</li>
+	<li>FreeBSD</li>
+	<li>NetBSD</li>
+	<li>OpenBSD</li>
+	<li>DragonflyBSD</li>
+	<li>Cygwin</li>
+	<li>AIX</li>
+</ul>
+Ganglia Development Team
+]]></content>
+  </entry>
   
 </feed>

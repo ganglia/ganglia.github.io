@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ganglia 3.0.0 Released! - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="The Ganglia Development Team is pleased to announce the release
+of Ganglia 3.0.0 (Kittyhawk) which is available for immediate
+download from http:// &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ganglia.github.com/blog/2005/02/07/ganglia-300-released">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ganglia.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ganglia 3.0.0 Released!</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-02-07T00:00:00-08:00" pubdate data-updated="true">Feb 7<span>th</span>, 2005</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The Ganglia Development Team is pleased to announce the release
+of Ganglia 3.0.0 (Kittyhawk) which is available for immediate
+download from <a href="http://ganglia.info/downloads.php">http://ganglia.info/downloads.php</a> and features&#8230;</p>
+<dl>
+<dt><strong><a name="item_windows_support"><strong>Windows Support</strong></a></strong><br />
+</dt>
+<dd>
+Ganglia now runs on Windows.  There is support for <strong>all</strong> standard metrics except
+for <code>disk_free</code>, <code>disk_total</code>, <code>max_part_used</code> and <code>cpu_num</code> (support will be added in
+future releases).
+</dd>
+<dd>
+<p>We have also created a windows installer which allows you to easily add the ganglia
+monitoring service to any Windows NT/2000/XP machine.</p>
+</dd>
+<dd>
+<p>Currently, you are required to use unicast messaging since there is no support 
+for multicast on windows at this time (although multicast support will be 
+added in the future).</p>
+</dd>
+<dd>
+<p>Special thanks to Carlo Marcelo Arenas Belon for providing
+metric code which makes native windows calls to collect the majority of
+metrics.</p>
+</dd>
+<p></p>
+<dt><strong><a name="item_unicast_support"><strong>Unicast Support</strong></a></strong><br />
+</dt>
+<dd>
+Ganglia now allows you to send status messages over unicast routes instead
+of a single multicast channels.  This capability gives you greater flexibility 
+in building your monitoring overlay and allows ganglia to run on networks that 
+are not multicast-enabled.
+</dd>
+<dd>
+<p>Moreover, you can specify as many unicast and multicast channels as you like.
+Whenever a message is sent each and every channel will receive the message.
+This feature gives you much more power in grouping machines.</p>
+</dd>
+<p></p>
+<dt><strong><a name="item_gmetric_commandline_tool_parses_the_configuration_"><strong>Gmetric commandline tool parses the configuration file</strong></a></strong><br />
+</dt>
+<dd>
+Gmetric now parses the gmond configuration file and sends metric information to
+all unicast and multicast udp channels specified.
+</dd>
+<p></p>
+<dt><strong><a name="item_apache_portable_runtime_library"><strong>Apache Portable Runtime library</strong></a></strong><br />
+</dt>
+<dd>
+The Apache Portable Runtime (APR) library is the library underlying the Apache web
+server which provide memory pools, networking io, hash tables and arrays in
+a very portable manner.  APR now serves as the heart of the new ganglia monitoring
+daemon to expand portability, improve reliability and provide new features like 
+IPv6 address support.
+</dd>
+<p></p>
+<dt><strong><a name="item_more_powerful_and_flexible_configuration"><strong>More powerful and flexible configuration</strong></a></strong><br />
+</dt>
+<dd>
+The configuration file for <code>gmond</code> has changed.  This change was necessary
+to provide you with a more flexible and powerful framework in which to
+configure gmond.  There is a man page for <code>gmond.conf</code> (see <code>man gmond.conf</code>)
+which explains the new format.
+</dd>
+<dd>
+<p>To convert an old 2.5.x configuration file to the new format simply run</p>
+</dd>
+<dd>
+<pre>
+  % gmond --convert old.conf &gt; new.conf</pre>
+</dd>
+<dd>
+<p>This new format allows you to specify multiple unicast and multicast channels
+to send and receive monitoring information, provides much more flexible access
+control lists, and allows you the power to specify exactly what metric you
+want to collect on each machine.</p>
+</dd>
+<dd>
+<p>Special thanks to the developers of confuse (http://www.nongnu.org/confuse/)
+for building such a great file parser.</p>
+</dd>
+<p></p>
+<dt><strong><a name="item_configuration_analysis_gives_bandwidth_usage"><strong>Configuration analysis gives bandwidth usage</strong></a></strong><br />
+</dt>
+<dd>
+There is a new option for gmond which allows you to get an estimate of
+the bandwidth that gmond will use given a particular configuration.
+</dd>
+<dd>
+<pre>
+  % ./gmond -b /etc/gmond.conf
+  7.945789 bytes/sec</pre>
+</dd>
+<dd>
+<p>This feature allows you to budget how much bandwidth you will use for
+monitoring your machines for a given configuration (see <code>man gmond.conf</code>).</p>
+</dd>
+<p></p>
+<dt><strong><a name="item_more_powerful_access_control_mechanism"><strong>More powerful Access Control mechanism</strong></a></strong><br />
+</dt>
+<dd>
+In the old 2.5.x world, the only access control mechanism available was
+a list of <code>trusted_hosts</code>.
+</dd>
+<dd>
+<p>Ganglia now supports very elaborate access control lists that allow you
+to specify an ip and mask (for filtering subnets) and outline the default
+policy (see <code>man gmond.conf</code> for details).</p>
+</dd>
+<p></p>
+<dt><strong><a name="item_you_have_complete_control_over_metric_collection"><strong>You have complete control over metric collection</strong></a></strong><br />
+</dt>
+<dd>
+The new configuration file format allows you to specify exactly which metrics
+are collected.  You can also specify custom time and value thresholds per metric at
+runtime instead of needing to modify source at compile time.
+This flexibility will allow us to easily add alert mechanism in the near future.
+</dd>
+<p></p>
+<dt><strong><a name="item_rpm_names_were_renamed_on_linux"><strong>RPM names were renamed on Linux</strong></a></strong><br />
+</dt>
+<dd>
+The RPM names have been renamed to make them simpler
+</dd>
+<dd>
+<pre>
+  ganglia-monitor-core-gmond    =&gt;   ganglia-gmond
+  ganglia-monitor-core-gmetad   =&gt;   ganglia-gmetad
+  ganglia-monitor-core-lib      =&gt;   ganglia-devel
+  ganglia-webfrontend           =&gt;   ganglia-web</pre>
+</dd>
+<p></p>
+<dt><strong><a name="item_major_cleanup_of_ganglia_2ddevel"><strong>Major cleanup of ganglia-devel</strong></a></strong><br />
+</dt>
+<dd>
+Lots of unnecessary headers where removed from libganglia and a
+<strong>ganglia-config</strong> script was added for application that link against
+ganglia (see ganglia-config &#8211;help for details).
+</dd>
+<dd>
+<p>ganglia-devel now installs only the following files</p>
+</dd>
+<dd>
+<pre>
+  /usr/bin/ganglia-config
+  /usr/include/ganglia.h
+  /usr/lib/libganglia.a
+  /usr/lib/libganglia.la
+  /usr/lib/libganglia.so</pre>
+</dd>
+<p></p>
+<dt><strong><a name="item_solaris_gmond_doesn_27t_have_to_be_run_as_root_any"><strong>Solaris gmond doesn&#8217;t have to be run as root anymore</strong></a></strong><br />
+</dt>
+<dd>
+Special thanks to Adeyemi Adesanya for switching the Solaris metric gathering code 
+from kvm to kstat, eliminating the need to run gmond as root.  Gmond on Solaris
+can <strong>now</strong> setuid to any user that you like (see <code>man gmond.conf</code> for details).
+</dd>
+<p></p>
+<dt><strong><a name="item_mixing_different_oses_on_same_channel_is_okay_now"><strong>Mixing different OSes on same channel is okay now</strong></a></strong><br />
+</dt>
+<dd>
+There was a bug in 2.5.x that caused Solaris and HPUX hosts to interpret
+metric data from other operating systems incorrectly.  You can now mix
+any and all supported operating systems on a single communication channel
+with no problems.
+</dd>
+<p></p>
+<dt><strong><a name="item_fixed_the_xml_dtd"><strong>Fixed the XML DTD</strong></a></strong><br />
+</dt>
+<dd>
+In certain circumstances, gmond would export invalid XML because of too restrictive
+of a DTD.  The DTD has been updated to prevent this error.
+</dd>
+<p></p>
+<dt><strong><a name="item_darwin_metric_collection_greatly_improved"><strong>Darwin metric collection greatly improved</strong></a></strong><br />
+</dt>
+<dd>
+Darwin now supports <code>mem_total</code>, <code>bytes_in</code>, <code>bytes_out</code>, <code>pkts_in</code>,
+<code>pkts_out</code>, <code>proc_run</code>, <code>disk_total</code>, <code>disk_free</code> and <code>part_max_used</code>
+metrics.  Special thanks to Sebastian Hagedorn, Glen Beane, Joshua Durham, Eric Wages and Brian Peterson for 
+their work on MacOS X.
+</dd>
+<p></p>
+<dt><strong><a name="item_fixed_bug_that_required_solaris_systems_to_run_in_"><strong>Fixed bug that required Solaris systems to run in debug mode</strong></a></strong><br />
+</dt>
+<dd>
+Gmond wasn&#8217;t properly daemonizing on certain Solaris systems requiring
+that it be run in debug_mode with the output redirected to <code>/dev/null</code>.
+This bug no longer exists.
+</dd>
+<p></p>
+<dt><strong><a name="item_fixed_a_memory_leak_on_freebsd"><strong>Fixed a memory leak on FreeBSD</strong></a></strong><br />
+</dt>
+<dd>
+Brooks Davis fixed a memory leak reported by Glen Beane in <code>find_disk_space()</code>
+and a potential memory leak in makenetvfslist().  General
+clean up of makenetvfslist().
+</dd>
+<p></p>
+<dt><strong><a name="item_all_metric_collection_functions_are_in_a_standalon"><strong>All metric collection functions are in a standalone library</strong></a></strong><br />
+</dt>
+<dd>
+All the metric code has been moved to <code>./srclib/libmetrics</code> in the ganglia
+distribution.  Special Thanks to Martin Knoblauch for his hard work in
+cleaning up the metric collection code.
+</dd>
+<p></p>
+<dt><strong><a name="item_potential_memory_leak_fixed_in_gmetad"><strong>Potential memory leak fixed in gmetad</strong></a></strong><br />
+</dt>
+<dd>
+Marcelo Veiga Neves determined how a memory leak was possible for metrics
+sent via gmetric.  Federico Sacerdoti applied a fix to prevent any leaks.
+</dd>
+<p></p>
+<dt><strong><a name="item_all_web_scripts_are_in_the__2e_2fweb_directory_of_"><strong>All web scripts are in the ./web directory of the distribution now</strong></a></strong><br />
+</dt>
+<dd>
+The PHP web scripts have been incorporated into the main ganglia distribution.
+Minor bug fixed added by Ramon Bastiaans and Jason Smith.
+</dd>
+<p></p>
+<dt><strong><a name="item_all_communication_protocols_are_now_defined_in__2e"><strong>All communication protocols are now defined in ./lib/protocol.x</strong></a></strong><br />
+</dt>
+<dd>
+To help in integrating ganglia communications into other applications, all
+XDR communication formats are defined in <code>./lib/protocol.x</code>.  This XDR description
+file can be parsed by <code>rpcgen</code>, for example, to build XDR code for sending
+and receiving status messages.
+</dd>
+<p></p>
+<dt><strong><a name="item_added_a__2d_2dforeground_flag_to_gmond"><strong>Added a &#8211;foreground flag to gmond</strong></a></strong><br />
+</dt>
+<dd>
+Allows you to force gmond to run in the foreground.
+</dd>
+<p></p>
+<dt><strong><a name="item_gmetad_on_solaris_bug_fixed"><strong>Gmetad on Solaris bug fixed</strong></a></strong><br />
+</dt>
+<dd>
+David Wood fixed a bug creating directories on Solaris.
+</dd>
+<p></p></dl>
+<p>We have deployed a new bugzilla service at <a href="http://bugzilla.ganglia.info/.">http://bugzilla.ganglia.info/.</a>  This
+site was created for you to submit bug reports, feature requests and upload
+patches for ganglia.</p>
+<p>If you have found ganglia to be useful in your organization, please consider
+making a donation to the project at <a href="http://sourceforge.net/donate/index.php?group_id=43021">http://sourceforge.net/donate/index.php?group_id=43021</a></p>
+<p>Thanks for using Ganglia!</p>
+<p>The Ganglia Development Team</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-02-07T00:00:00-08:00" pubdate data-updated="true">Feb 7<span>th</span>, 2005</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ganglia.github.com/blog/2005/02/07/ganglia-300-released/" data-via="" data-counturl="http://ganglia.github.com/blog/2005/02/07/ganglia-300-released/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2005/01/13/bugzillagangliainfo/" title="Previous Post: bugzilla.ganglia.info">&laquo; bugzilla.ganglia.info</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2005/03/24/ganglia-301-released/" title="Next Post: Ganglia 3.0.1 Released">Ganglia 3.0.1 Released &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/ganglia-web-3-5-7-released/">Ganglia Web 3.5.7 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-web-3-5-6-released/">Ganglia Web 3.5.6 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-3-5-0-released/">Ganglia 3.5.0 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/16/ganglia-web-3-5-2-released/">Ganglia Web 3.5.2 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/13/ganglia-web-3-5-1-release-security-advisory/">Ganglia Web 3.5.1 Release - Security Advisory</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

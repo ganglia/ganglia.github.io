@@ -1,0 +1,602 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="2002-04-04 Dave Wallace Fixed a bug in gmond which caused big-endian architectures to incorrectly store multicast data and therefore misreport on the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ganglia.github.com/blog/page/9">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ganglia.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/04/04/monitoring-core-v222-released/">Monitoring Core v2.2.2 Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-04-04T00:00:00-08:00" pubdate data-updated="true">Apr 4<span>th</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">2002-04-04 Dave Wallace
+<ul>
+<li>Fixed a bug in gmond which caused big-endian architectures to incorrectly store multicast data and therefore misreport on the XML port. Solaris and Alpha/Linux users should be happy to here that news!
+</li><li>Added a key value check of the XDR multicast data in ./gmond/listen.c
+</li></ul>
+<br />
+
+2002-04-04 Matt Massie
+<ul>
+<li>Updated ./lib/gexec_func.c gexec_cluster() function to handle hosts with no domainname correctly as pointed out by David Wallace
+</li><li>Updated the program commandline options to obey the GNU Coding Standard
+</li><li>Added a &#8211;debug_level parameter to gmond to allow debugging the daemon without recompiling the daemon
+</li><li>Updated the &#8211;trusted_host option to allow multiple instances of the option
+</li><li>Added a &#8211;mcast_ttl gmond option to allow you to modify the Time-To-Live (TTL) of the outgoing multicast messages
+</li></ul>
+<br />
+
+2002-04-02 Neil Spring
+<ul>
+<li>Updated the gmond Makefile to cleanup the machine.c link on &#8220;make clean&#8221;
+</li></ul>
+<br />
+
+2002-04-02 Doc Schneider
+<ul>
+<li>Update the way the number of CPUs are collected in order to workaround a bug on AMD-based systems.
+</li></ul>
+<br />
+
+2002-03-26 Matt Massie
+<ul>
+<li>Removed the use of streams (via fdopen) on the XML socket and replaced it with write()s on the socket descriptor to work around Linux bug under high-stress conditions
+</li></ul>
+<br />
+
+2002-03-25 Matt Massie
+<ul>
+<li>Added thread barriers to gmond initialization to ensure listening threads exist before the threads which multicast are created
+</li></ul>
+<br />
+
+2002-03-24 Matt Massie
+<ul>
+<li>Use XML_ParseBuffer() in gexec_cluster() in order to avoid double copying of buffers (XML input from gmond). Faster.
+</li></ul>
+<br />
+
+2002-03-22 Matt Massie
+<ul> 
+<li>Updated gexec_cluster_free() to ensure no memory leaks even when cluster.num_nodes and cluster.num_dead_nodes equals zero
+</li><li>Used setvbuf to ensure the gmond and libganglia are using line buffering
+</li></ul>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/03/22/monitoring-core-v221-released/">Monitoring Core v2.2.1 Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-03-22T00:00:00-08:00" pubdate data-updated="true">Mar 22<span>nd</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>Updated net.h to include netinet/in.h
+</li><li>Changed sockaddr_in_new function in net.c to plug a potential memory leak
+</li><li>Added XML_ParserFree() call to gexec_cluster() lib call to plug up memory leak
+</li><li>Modified ./gmond/server.c to prevent crashes under heavy stress conditions
+</li><li>Added fclose() calls to gexec_cluster() to plug a memory leak
+</li><li>Added gexec_cluster_free() call to gstat for good measure
+</li></ul>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/03/22/greg-brunos-python-class-v20-released/">Greg Bruno&#8217;s Python Class v2.0 Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-03-22T00:00:00-08:00" pubdate data-updated="true">Mar 22<span>nd</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">The command-line client (/usr/sbin/ganglia) is a small utility which is best used as an example &#8211; guiding the development of other python-based ganglia tools. The command-line client instantiates the ganglia python class (Gang). &#8216;Gang&#8217; (/usr/lib/python1.5/site-packages/gmon/ganglia.py) is where all the &#8220;heavy-lifting&#8221; occurs, as it contains the methods to attach to a local gmond server and parse gmond&#8217;s XML output. Other methods are included that output specific metrics and display a help message (by dynamically examining the metrics in the XML output!).
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/03/18/monitoring-core-v220-released/">Monitoring Core v2.2.0 Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-03-18T00:00:00-08:00" pubdate data-updated="true">Mar 18<span>th</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>Preston Smith patched a wrong sysctl to get free memory for freebsd machines
+</li><li>Added mute and deaf mode for gmond
+</li><li>Created a new ganglia-monitor-core-lib distribution for the libganglia library. Ganglia has the start of a C API now.
+</li><li>Moved all the documentation to DocBook, added much more information and updated/removed what was there. Output docs to ./docs directory of the distribution in both HTML and PDF form. Also installed Doxygen to document libganglia.
+</li><li>Add the Ganglia Status Tool (gstat) which allows you to check the status of your cluster from the commandline. Hosts are sorted with least-loaded nodes at the top of the list.
+</li><li>Removed the need for the POSIX mutex in pre_process_node() allowing for faster processing of incoming multicast data
+</li><li>Changed gmond to not count itself as a running process when reporting the number of running processes.
+</li><li>Doc Schneider changed the way ganglia builds RPMs to support non-root builds as suggested by an anonymous SourceForge user
+</li></ul>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/03/14/documentation-updated/">Documentation Updated</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-03-14T00:00:00-08:00" pubdate data-updated="true">Mar 14<span>th</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">I&#8217;ve put all the Ganglia documentation in DocBook format in order to index and organize the ganglia documentation and also create a manual in PDF which can easily be printed. The documentation is incomplete but I&#8217;m updating it daily.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/02/28/monitoring-core-v212-released/">Monitoring Core v2.1.2 Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-02-28T00:00:00-08:00" pubdate data-updated="true">Feb 28<span>th</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>Added a new CLUSTER element to the XML with two attributes: NAME and LOCALTIME. Necessary for monitoring clusters in many different timezones.
+</li><li>Fixed the getopt_long() call in gmond.c thanks to feedback from Meik Hellmund. The getopt_long() parameters didn&#8217;t match the switch() statement breaking the &#8220;trusted_host&#8221; option.
+</li><li>Fixed a bug in gmond where connections from untrusted hosts caused segfaults. Error caused by passing datum_free() a NULL pointer in server_thread() of ./gmond/server.c.
+</li><li>Changed the way transient nameservice errors are handled by pre_process_node() in ./gmond/listen.c. Previously, transient errors were retried but now they are treated as errors (although gmond will continue trying to resolve the host when it gets a new multicast packet from it)
+</li><li>Updated the ganglia.spec file to merge gmond and gmetric into a single RPM, fixed some small bugs, and updated the RPM information.
+</li><li>Preston Smith updated the FreeBSD monitoring code to include all metrics which are monitored under Linux except number of running processes, absolute cpu idle time, and shared memory. SMP users may find that freebsd&#8217;s cp_time sysctls is not completely accurate under FreeBSD stable meaning CPU%s might be inaccurate. However, it works under FreeBSD-CURRENT.
+</li><li>Changed the gmetric options to also support long options and updated the help output (from -h, &#8211;help) to be much more descriptive
+</li></ul>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/02/22/monitoring-core-v211-released/">Monitoring Core v2.1.1 Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-02-22T00:00:00-08:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">Added the getopt source to the ganglia library for systems (Solaris, FreeBSD) which don&#8217;t have it installed by default. Tested on Solaris 8, FreeBSD 4.5 and Alpha/Linux.
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/02/21/monitoring-core-v210-is-released/">Monitoring Core v2.1.0 Is Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-02-21T00:00:00-08:00" pubdate data-updated="true">Feb 21<span>st</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>Completely rewrote the underlying hash library because the original hash functions were over-engineered and had a memory bug on certain platforms. New hash functions are superlight and fast. Built test program and profiled/traced all memory functions using mpatrol. No leaks. Special thanks to Mike Howard for letting me test gmond on his cluster which displayed the memory bug. Also thanks to Alan Hagg and Rod Hernandez for patiently answering my questions about the memory bug on their clusters. You help was appreciated!
+</li><li>Updated code to catch when transient nameservice errors occur and retry. Correctly handle hosts the don&#8217;t resolve instead of treating as an error
+</li><li>Added a patch submitted by Joshua J England for gmond to correctly report the number of CPUs and their speed on alpha architectures
+</li><li>Added a patch submitted by Eirikur Hallgrimsson and written by Yaroslav Klyukin for gmetric which allows users to chose which network interface gmetric multicasts metric data
+</li><li>Changed the &#8220;safe_host&#8221; option to &#8220;trusted_host&#8221; to make it clearer. Also added the &#8220;num_nodes&#8221; and &#8220;num_custom_metrics&#8221; options for more efficient in-memory cluster image creation
+</li><li>Reduced the number of total threads by one by removing the for(;;)pause() spin and having the main thread do server work
+</li><li>created the function my_inet_ntop() function in libganglia to deal with the limitations of inet_ntoa in a multi-threaded environment
+</li><li>changed the self-organzing behavior of gmond to recognize when a transient error occured on a remote gmond process
+</li><li>added verbose error checking of gethostbyaddr() in listen.c
+</li></ul>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/02/11/php-rrd-web-client-v103-released/">Php Rrd Web Client v1.0.3 Released!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-02-11T00:00:00-08:00" pubdate data-updated="true">Feb 11<span>th</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>Fixed a bug in ganglia-rdd.pl where stale hosts were not being removed from the in-memory hash (to match the XML output). No changes in the underlying databases were necessary only the data that is being put into them.
+</li><li>Changed the Y-Axis on the hosts in the cluster overview to have the same range (min/max) in order to make better host comparisons. (Thanks to Tim Cera for making the suggestion)
+</li><li>Changed the list of hosts that are down to a drop-down box. Previously, when a large number of machines went down the top right corner table cell would swell. The host list is also sort in order from the most recent crash to the oldest.
+</li></ul>
+
+See a demo at http://ganglia.sourceforge.net/demo/!
+Download it now, from the ganglia download site
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2002/02/09/dynamic-mpi-machinefile-maker-released-v100/">Dynamic MPI Machinefile Maker Released (v1.0.0)!</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2002-02-09T00:00:00-08:00" pubdate data-updated="true">Feb 9<span>th</span>, 2002</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">I&#8217;ve had requests from users to integrate ganglia into their MPI installations. As a first step I&#8217;m releasing a Perl script which creates a dynamic load-balanced MPI machinefile.
+
+Any nodes in your cluster that are down are not included in the list and the number of CPUs for each node is listed as well.
+
+To get this great script, go to the download page
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/10/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/8/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/ganglia-web-3-5-7-released/">Ganglia Web 3.5.7 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-web-3-5-6-released/">Ganglia Web 3.5.6 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/14/ganglia-3-5-0-released/">Ganglia 3.5.0 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/16/ganglia-web-3-5-2-released/">Ganglia Web 3.5.2 released</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/13/ganglia-web-3-5-1-release-security-advisory/">Ganglia Web 3.5.1 Release - Security Advisory</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
